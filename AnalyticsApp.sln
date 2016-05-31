@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyticsApp", "AnalyticsApp\AnalyticsApp.csproj", "{EF7D84BC-33A0-4FBF-922C-1F7398ECA678}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyticsAPI", "AnalyticsAPI\AnalyticsAPI.csproj", "{44AE1418-2D2D-489A-BD5A-B5E61150BF70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyticsServer", "AnalyticsServer\AnalyticsServer.csproj", "{B3B6CCA6-5209-4B42-9918-BDB7A9CDDB38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{EF7D84BC-33A0-4FBF-922C-1F7398ECA678}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF7D84BC-33A0-4FBF-922C-1F7398ECA678}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF7D84BC-33A0-4FBF-922C-1F7398ECA678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44AE1418-2D2D-489A-BD5A-B5E61150BF70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44AE1418-2D2D-489A-BD5A-B5E61150BF70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44AE1418-2D2D-489A-BD5A-B5E61150BF70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44AE1418-2D2D-489A-BD5A-B5E61150BF70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3B6CCA6-5209-4B42-9918-BDB7A9CDDB38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B6CCA6-5209-4B42-9918-BDB7A9CDDB38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B6CCA6-5209-4B42-9918-BDB7A9CDDB38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B6CCA6-5209-4B42-9918-BDB7A9CDDB38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
