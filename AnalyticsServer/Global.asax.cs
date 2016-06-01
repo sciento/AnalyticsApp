@@ -10,13 +10,10 @@ namespace AnalyticsServer
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            RegisterRoutes(RouteTable.Routes);
+            RouteTable.Routes.Add(new ServiceRoute("common", new WebServiceHostFactory(), typeof(CommonService)));
+            RouteTable.Routes.Add(new ServiceRoute("visit", new WebServiceHostFactory(), typeof(VisitService)));
         }
 
-        private void RegisterRoutes(RouteCollection routes)
-        {
-            routes.Add(new ServiceRoute("visit", new WebServiceHostFactory(), typeof(ServiceVisit)));
-        }
 
         protected void Session_Start(object sender, EventArgs e)
         {

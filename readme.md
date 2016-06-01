@@ -79,7 +79,7 @@ ____
 
 ##JSON-Response
 
-###Wraper-Object
+###Wrapper-Object
 Allgemeines Wrapper-Object, welches bei jedem Response verwendet wird.
 Die eigentlichen Nachrichten befinden sich in *items*. 
 ```json

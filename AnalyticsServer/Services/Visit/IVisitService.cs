@@ -8,13 +8,11 @@ using System.Web;
 namespace AnalyticsServer.Interfaces
 {
     [ServiceContract]
-    public interface IServiceVisit
+    public interface IVisitService
     {
         [OperationContract]
-        String Get();
+        string Get(string test);
 
-        [OperationContract]
-        List<Visit> GetList();
 
 
     }

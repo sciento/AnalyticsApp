@@ -10,7 +10,7 @@ using System.ServiceModel.Activation;
 namespace AnalyticsServer.Services
 {
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-    public class ServiceVisit : IServiceVisit
+    public class VisitService : IVisitService
     {
         [WebInvoke(Method="GET", UriTemplate="find", ResponseFormat = WebMessageFormat.Json)]
         public string Get()
