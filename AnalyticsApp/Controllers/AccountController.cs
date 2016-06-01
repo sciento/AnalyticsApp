@@ -16,7 +16,6 @@ namespace AnalyticsApp.Controllers
     public class AccountController : Controller
     {
 
-        //  TEST Commit
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 

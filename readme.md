@@ -5,7 +5,8 @@
 ###__Content__
 - [Routing Plan](#routing-plan-api)
 - [Models](#models)
-- [Models](#to-dos)
+- [TODO](#to-dos)
+- [JSON-Response](#json-response)
 
 
 ##To-Dos
@@ -76,3 +77,139 @@ ____
 |__Referral__|_string_|URL der vorher besuchten Seite|
 |__Os__|_string_|Betriebssystem|
 
+##JSON-Response
+
+###Wraper-Object
+Allgemeines Wrapper-Object, welches bei jedem Response verwendet wird.
+Die eigentlichen Nachrichten befinden sich in *items*. 
+```json
+{
+    "items": [],
+    "error": {
+        "error_id": 0,
+        "name": "",
+        "message": ""
+    }
+}
+```
+
+###User
+Informationen zu einem User.
+```json
+{
+    "user_id": "",
+    "display_name: ""
+}
+```
+
+###Visit
+Besuchsstatistik zu einer Seite.
+```json
+{
+    "site": {
+        "site_id": "",
+        "link": "",
+        "owner": {
+            "user_id": "",
+            "display_name": ""
+        }
+    },
+    "call_time": "",
+    "exit_time": ""
+}
+```
+
+###Most-Visit
+Meistbesuchte Seiten.
+```json
+{
+    "site": {
+        "site_id": "",
+        "link": "",
+        "owner": {
+            "user_id": "",
+            "display_name": ""
+        }
+    },
+    "visits": 0
+}
+```
+
+###Browser Statistics
+Besucherstatistiken nach verwendeten Browser.
+```json
+{
+    "name": "",
+    "version": "",
+    "user_agent": "",
+    "language": "",
+    "site": {
+        "site_id": "",
+        "link": "",
+        "owner": {
+            "user_id": "",
+            "display_name": ""
+        }
+    },
+    "visits": 0
+}
+```
+
+###Operating System Statistics
+Besucherstatistiken nach verwendeten Betriebssytem.
+```json
+{
+    "name": "",
+    "version": "",
+    "site": {
+        "site_id": "",
+        "link": "",
+        "owner": {
+            "user_id": "",
+            "display_name": ""
+        }
+    },
+    "visits": 0
+}
+```
+
+###Country Statistics
+Besucherstatistiken einer Seite nach Länder.
+```json
+{
+    "country": "",
+    "site": {
+        "site_id": "",
+        "link": "",
+        "owner": {
+            "user_id": "",
+            "display_name": ""
+        }
+    },
+    "visits": 0
+}
+```
+
+###Aufruf Herkunft Statisiken
+Statistiken von welcher Seite die Besucher auf diese kamen.
+```json
+{
+    "site": {
+        "site_id": "",
+        "link": "",
+        "owner": {
+            "user_id": "",
+            "display_name": ""
+        }
+    },
+    "previous_site": {
+        "site_id": "",
+        "link": "",
+        "owner": {
+            "user_id": "",
+            "display_name": ""
+        }
+    },
+    "count": 0
+}
+```
