@@ -21,16 +21,17 @@
 |`[DELETE]`|/users/{id}|Benutzer löschen|_Authorize_|
 |`[PUT]`|/users/{id}|Ändern von Account Information|_Authorize_|
 |__Sites__|-|-|-|
-|`[POST]`|/users/{id}/sites|Hinzufügen einer Seite|_Authorize_|
-|`[GET]`|/users/{id}/sites|Alle Seiten eines Benutzers|_Authorize_|
-|`[GET]`|/users/{id}/sites/{pid}|Seite eines Benutzers|_Authorize_|
-|`[PUT]`|/users/{id}/sites/{pid}|Änderung einer Seite|_Authorize_|
-|`[DELETE]`|/users/{id}/sites/{pid}|Löschen einer Seite|_Authorize_|
+|`[POST]`|/users/sites/{id}|Hinzufügen einer Seite|_Authorize_|
+|`[GET]`|/users/sites/{id}|Alle Seiten eines Benutzers|_Authorize_|
+|`[GET]`|/users/sites/{id}/{pid}|Seite eines Benutzers|_Authorize_|
+|`[PUT]`|/users/sites/{id}/{pid}|Änderung einer Seite|_Authorize_|
+|`[DELETE]`|/users/sites/{id}/{pid}|Löschen einer Seite|_Authorize_|
 |__Analyse File__|-|-|-|
 |`[GET]`|/analyse/{pid}|JavaScript Analyser File|_Public_|
 |__Visit Entry__|-|-|-|
-|`[POST]`|/visits/{uid}/{pid}|Eintrag eines Besuchs|_Public_|
+|`[POST]`|/visit/{uid}/{pid}|Eintrag eines Besuchs|_Public_|
 |__Analyse Data__|-|-|-|
+|`[GET]`|/visitor/{uid}|Gesamtanzahl Besucher aller Websites des Users|_Authorize_|
 |`[GET]`|/visitor/{uid}/{pid}|Gesamtanzahl Besucher einer Seite|_Authorize_|
 |`[GET]`|/visitor/{uid}/{pid}/{date}|Anzahl Besucher einer Seite an einem Tag|_Authorize_|
 |`[GET]`|/visitor/{uid}/{pid}/{week}|Anzahl Besucher einer Seite in einer Woche|_Authorize_|
