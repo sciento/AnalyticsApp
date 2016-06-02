@@ -29,24 +29,24 @@
 |__Analyse File__|-|-|-|
 |`[GET]`|/analyse/{pid}|JavaScript Analyser File|_Public_|
 |__Visit Entry__|-|-|-|
-|`[POST]`|/{uid}/{pid}/visits|Eintrag eines Besuchs|_Public_|
+|`[POST]`|/visits/{uid}/{pid}|Eintrag eines Besuchs|_Public_|
 |__Analyse Data__|-|-|-|
-|`[GET]`|/{uid}/{pid}/visitor|Gesamtanzahl Besucher einer Seite|_Authorize_|
-|`[GET]`|/{uid}/{pid}/visitor/{date}|Anzahl Besucher einer Seite an einem Tag|_Authorize_|
-|`[GET]`|/{uid}/{pid}/visitor/{week}|Anzahl Besucher einer Seite in einer Woche|_Authorize_|
+|`[GET]`|/visitor/{uid}/{pid}|Gesamtanzahl Besucher einer Seite|_Authorize_|
+|`[GET]`|/visitor/{uid}/{pid}/{date}|Anzahl Besucher einer Seite an einem Tag|_Authorize_|
+|`[GET]`|/visitor/{uid}/{pid}/{week}|Anzahl Besucher einer Seite in einer Woche|_Authorize_|
 |__Most Visit Data__|-|-|-|
-|`[GET]`|/{uid}/{pid}/mostvisit|Meistbesuchte Seiten|_Authorize_|
-|`[GET]`|/{uid}/{pid}/mostvisit/{date}|Meistbesuchte Seiten des Tages|_Authorize_|
-|`[GET]`|/{uid}/{pid}/mostvisit/{week}|Meistbesuchte Seiten der Woche|_Authorize_|
+|`[GET]`|/mostvisit/{uid}/{pid}|Meistbesuchte Seiten|_Authorize_|
+|`[GET]`|/mostvisit/{uid}/{pid}/{date}|Meistbesuchte Seiten des Tages|_Authorize_|
+|`[GET]`|/mostvisit/{uid}/{pid}/{week}|Meistbesuchte Seiten der Woche|_Authorize_|
 |__Vists by Time__|-|-|-|
-|`[GET]`|/{uid}/{pid}/visittime|Besucher Uhrzeit Gesamt|_Authorize_|
-|`[GET]`|/{uid}/{pid}/visittime/{day}|Besucher Uhrzeit Tag|_Authorize_|
-|`[GET]`|/{uid}/{pid}/visittime/{week}|Besucher Uhrzeit Woche|_Authorize_|
+|`[GET]`|/visittime/{uid}/{pid}|Besucher Uhrzeit Gesamt|_Authorize_|
+|`[GET]`|/visittime/{uid}/{pid}/{day}|Besucher Uhrzeit Tag|_Authorize_|
+|`[GET]`|/visittime/{uid}/{pid}/{week}|Besucher Uhrzeit Woche|_Authorize_|
 |__Others__|-|-|-|
-|`[GET]`|/{uid}/{pid}/browser|Browser Statistik|_Authorize_|
-|`[GET]`|/{uid}/{pid}/os|OS Statistik|_Authorize_|
-|`[GET]`|/{uid}/{pid}/country|Länder Statistik|_Authorize_|
-|`[GET]`|/{uid}/{pid}/referral|Aufruf Herkunft|_Authorize_|
+|`[GET]`|/browser/{uid}/{pid}|Browser Statistik|_Authorize_|
+|`[GET]`|/os/{uid}/{pid}|OS Statistik|_Authorize_|
+|`[GET]`|/country/{uid}/{pid}|Länder Statistik|_Authorize_|
+|`[GET]`|/referral/{uid}/{pid}|Aufruf Herkunft|_Authorize_|
 ____
 ##Models
 
