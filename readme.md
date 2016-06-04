@@ -27,7 +27,7 @@
 |`[PUT]`|/users/sites/{id}/{pid}|Änderung einer Seite|_Authorize_|
 |`[DELETE]`|/users/sites/{id}/{pid}|Löschen einer Seite|_Authorize_|
 |__Analyse File__|-|-|-|
-|`[GET]`|/visit/{pid}|JavaScript Analyser File|_Public_|
+|`[GET]`|/embed/{pid}|JavaScript Analyser File|_Public_|
 |__Analyse__|-|-|-|
 |`[POST]`|/visit/{uid}/{pid}|Eintrag eines Besuchs|_Public_|
 |`[GET]`|/visit/{uid}|Gesamtanzahl Besucher aller Websites des Users|_Authorize_|
