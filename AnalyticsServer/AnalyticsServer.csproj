@@ -68,6 +68,10 @@
     </Compile>
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Wrapper.cs" />
+    <Compile Include="Services\Embed\EmbedService.svc.cs">
+      <DependentUpon>EmbedService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Embed\IEmbedService.cs" />
     <Compile Include="Services\Users\IUsersService.cs" />
     <Compile Include="Services\Users\UsersService.svc.cs">
       <DependentUpon>UsersService.svc</DependentUpon>
@@ -86,6 +90,7 @@
     </Compile>
     <Content Include="Global.asax" />
     <Content Include="index.html" />
+    <Content Include="Services\Embed\EmbedService.svc" />
     <Content Include="Services\Users\UsersService.svc" />
     <Content Include="Services\Analyse\AnalyseService.svc" />
     <Content Include="Services\Visitors\VisitorsService.svc" />

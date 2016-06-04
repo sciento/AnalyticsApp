@@ -27,26 +27,26 @@
 |`[PUT]`|/users/sites/{id}/{pid}|Änderung einer Seite|_Authorize_|
 |`[DELETE]`|/users/sites/{id}/{pid}|Löschen einer Seite|_Authorize_|
 |__Analyse File__|-|-|-|
-|`[GET]`|/analyse/{pid}|JavaScript Analyser File|_Public_|
+|`[GET]`|/visit/{pid}|JavaScript Analyser File|_Public_|
 |__Analyse__|-|-|-|
-|`[POST]`|/visitor/{uid}/{pid}|Eintrag eines Besuchs|_Public_|
-|`[GET]`|/visitor/{uid}|Gesamtanzahl Besucher aller Websites des Users|_Authorize_|
-|`[GET]`|/visitor/{uid}/{pid}|Gesamtanzahl Besucher einer Seite|_Authorize_|
-|`[GET]`|/visitor/{uid}/{pid}/{date}|Anzahl Besucher einer Seite an einem Tag|_Authorize_|
-|`[GET]`|/visitor/{uid}/{pid}/{week}|Anzahl Besucher einer Seite in einer Woche|_Authorize_|
+|`[POST]`|/visit/{uid}/{pid}|Eintrag eines Besuchs|_Public_|
+|`[GET]`|/visit/{uid}|Gesamtanzahl Besucher aller Websites des Users|_Authorize_|
+|`[GET]`|/visit/{uid}/{pid}|Gesamtanzahl Besucher einer Seite|_Authorize_|
+|`[GET]`|/visit/{uid}/{pid}/{date}|Anzahl Besucher einer Seite an einem Tag|_Authorize_|
+|`[GET]`|/visit/{uid}/{pid}/{week}|Anzahl Besucher einer Seite in einer Woche|_Authorize_|
 |__Most Visit Data__|-|-|-|
-|`[GET]`|/mostvisit/{uid}/{pid}|Meistbesuchte Seiten|_Authorize_|
-|`[GET]`|/mostvisit/{uid}/{pid}/{date}|Meistbesuchte Seiten des Tages|_Authorize_|
-|`[GET]`|/mostvisit/{uid}/{pid}/{week}|Meistbesuchte Seiten der Woche|_Authorize_|
+|`[GET]`|/analyse/most/{uid}/{pid}|Meistbesuchte Seiten|_Authorize_|
+|`[GET]`|/analyse/most/{uid}/{pid}/{date}|Meistbesuchte Seiten des Tages|_Authorize_|
+|`[GET]`|/analyse/most/{uid}/{pid}/{week}|Meistbesuchte Seiten der Woche|_Authorize_|
 |__Vists by Time__|-|-|-|
-|`[GET]`|/visittime/{uid}/{pid}|Besucher Uhrzeit Gesamt|_Authorize_|
-|`[GET]`|/visittime/{uid}/{pid}/{day}|Besucher Uhrzeit Tag|_Authorize_|
-|`[GET]`|/visittime/{uid}/{pid}/{week}|Besucher Uhrzeit Woche|_Authorize_|
+|`[GET]`|/analyse/time/{uid}/{pid}|Besucher Uhrzeit Gesamt|_Authorize_|
+|`[GET]`|/analyse/time/{uid}/{pid}/{day}|Besucher Uhrzeit Tag|_Authorize_|
+|`[GET]`|/analyse/time/{uid}/{pid}/{week}|Besucher Uhrzeit Woche|_Authorize_|
 |__Others__|-|-|-|
-|`[GET]`|/browser/{uid}/{pid}|Browser Statistik|_Authorize_|
-|`[GET]`|/os/{uid}/{pid}|OS Statistik|_Authorize_|
-|`[GET]`|/country/{uid}/{pid}|Länder Statistik|_Authorize_|
-|`[GET]`|/referral/{uid}/{pid}|Aufruf Herkunft|_Authorize_|
+|`[GET]`|/analyse/browser/{uid}/{pid}|Browser Statistik|_Authorize_|
+|`[GET]`|/analyse/os/{uid}/{pid}|OS Statistik|_Authorize_|
+|`[GET]`|/analyse/country/{uid}/{pid}|Länder Statistik|_Authorize_|
+|`[GET]`|/analyse/referral/{uid}/{pid}|Aufruf Herkunft|_Authorize_|
 ____
 ##Models
 

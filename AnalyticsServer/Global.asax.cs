@@ -13,7 +13,8 @@ namespace AnalyticsServer
             RouteTable.Routes.Add(new ServiceRoute("site", new WebServiceHostFactory(), typeof(SitesService)));
             RouteTable.Routes.Add(new ServiceRoute("analyse", new WebServiceHostFactory(), typeof(AnalyseSerivce)));
             RouteTable.Routes.Add(new ServiceRoute("user", new WebServiceHostFactory(), typeof(UsersService)));
-            RouteTable.Routes.Add(new ServiceRoute("visitor", new WebServiceHostFactory(), typeof(VisitorsService)));
+            RouteTable.Routes.Add(new ServiceRoute("visit", new WebServiceHostFactory(), typeof(VisitorsService)));
+            RouteTable.Routes.Add(new ServiceRoute("embed", new WebServiceHostFactory(), typeof(EmbedService)));
         }
 
 
