@@ -10,8 +10,10 @@ namespace AnalyticsServer
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            RouteTable.Routes.Add(new ServiceRoute("common", new WebServiceHostFactory(), typeof(CommonService)));
-            RouteTable.Routes.Add(new ServiceRoute("visit", new WebServiceHostFactory(), typeof(VisitService)));
+            RouteTable.Routes.Add(new ServiceRoute("site", new WebServiceHostFactory(), typeof(SitesService)));
+            RouteTable.Routes.Add(new ServiceRoute("analyse", new WebServiceHostFactory(), typeof(AnalyseSerivce)));
+            RouteTable.Routes.Add(new ServiceRoute("user", new WebServiceHostFactory(), typeof(UsersService)));
+            RouteTable.Routes.Add(new ServiceRoute("visitor", new WebServiceHostFactory(), typeof(VisitorsService)));
         }
 
 

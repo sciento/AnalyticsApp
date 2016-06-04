@@ -68,18 +68,28 @@
     </Compile>
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Wrapper.cs" />
-    <Compile Include="Services\Common\ICommonService.cs" />
-    <Compile Include="Services\Common\CommonService.svc.cs">
-      <DependentUpon>CommonService.svc</DependentUpon>
+    <Compile Include="Services\Users\IUsersService.cs" />
+    <Compile Include="Services\Users\UsersService.svc.cs">
+      <DependentUpon>UsersService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\Visit\IVisitService.cs" />
-    <Compile Include="Services\Visit\VisitService.svc.cs">
-      <DependentUpon>VisitService.svc</DependentUpon>
+    <Compile Include="Services\Analyse\IAnalyseService.cs" />
+    <Compile Include="Services\Analyse\AnalyseService.svc.cs">
+      <DependentUpon>AnalyseService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Visitors\IVisitorsService.cs" />
+    <Compile Include="Services\Visitors\VisitorsService.svc.cs">
+      <DependentUpon>VisitorsService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Sites\ISitesService.cs" />
+    <Compile Include="Services\Sites\SitesService.svc.cs">
+      <DependentUpon>SitesService.svc</DependentUpon>
     </Compile>
     <Content Include="Global.asax" />
     <Content Include="index.html" />
-    <Content Include="Services\Common\CommonService.svc" />
-    <Content Include="Services\Visit\VisitService.svc" />
+    <Content Include="Services\Users\UsersService.svc" />
+    <Content Include="Services\Analyse\AnalyseService.svc" />
+    <Content Include="Services\Visitors\VisitorsService.svc" />
+    <Content Include="Services\Sites\SitesService.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

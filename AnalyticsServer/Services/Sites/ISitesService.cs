@@ -4,18 +4,14 @@ using System.Linq;
 using System.ServiceModel;
 using AnalyticsServer.Models;
 using System.Web;
-using System.ServiceModel.Web;
 
 namespace AnalyticsServer.Interfaces
 {
     [ServiceContract]
-    public interface ICommonService
+    public interface ISitesService
     {
         [OperationContract]
-        String Root();
-
-        [OperationContract]
-        String Test();
+        string Get(string test);
 
 
 

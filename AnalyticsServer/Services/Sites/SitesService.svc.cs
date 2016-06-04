@@ -6,24 +6,19 @@ using AnalyticsServer.Models;
 using AnalyticsServer.Interfaces;
 using System.ServiceModel.Web;
 using System.ServiceModel.Activation;
+using System.ServiceModel;
 
 namespace AnalyticsServer.Services
 {
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-    public class CommonService : ICommonService
+    public class SitesService : ISitesService
     {
-        [WebInvoke(Method="GET", UriTemplate="", ResponseFormat = WebMessageFormat.Xml)]
-        public string Root()
+        [WebInvoke(Method="GET", UriTemplate= "get/{test}", ResponseFormat = WebMessageFormat.Json)]
+        public string Get(string test)
         {
-
-            return "API Online";
+            return "get" + test;
 
         }
 
-        [WebInvoke(Method = "GET", UriTemplate = "test", ResponseFormat = WebMessageFormat.Xml)]
-        public string Test()
-        {
-            return "test";
-        }
     }
 }
