@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es5",
+    "outDir": "./Scripts/App"
+  },
+  "files": [
+    "./src/dashboard.ts"
+  ],
+  "compileOnSave": true,
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}

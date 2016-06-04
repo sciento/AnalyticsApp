@@ -13,6 +13,8 @@ namespace AnalyticsApp.Controllers
             return View();
         }
 
+        public ActionResult Dashboard() => View();
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
