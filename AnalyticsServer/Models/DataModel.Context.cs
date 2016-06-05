@@ -18,10 +18,8 @@ namespace AnalyticsServer.Models
         public AnalyticsEntities()
             : base("name=AnalyticsEntities")
         {
-            this.Configuration.ProxyCreationEnabled = false;
-
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

@@ -4,77 +4,76 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AnalyticsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Sites">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Visits">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Ip" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Browser" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="PageUrl" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CallTime" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ExitTime" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Referral" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Os" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SiteId" Type="uniqueidentifier" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_SiteVisit">
-          <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
-          <End Role="Visits" Type="Self.Visits" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sites">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Visits">
-              <PropertyRef Name="SiteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserSite">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Sites" Type="Self.Sites" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Sites">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="AnalyticsModelStoreContainer">
-          <EntitySet Name="Sites" EntityType="Self.Sites" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Visits" EntityType="Self.Visits" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_SiteVisit" Association="Self.FK_SiteVisit">
-            <End Role="Sites" EntitySet="Sites" />
-            <End Role="Visits" EntitySet="Visits" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserSite" Association="Self.FK_UserSite">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Sites" EntitySet="Sites" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="AnalyticsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AnalyticsModelStoreContainer">
+    <EntitySet Name="Sites" EntityType="AnalyticsModel.Store.Sites" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="AnalyticsModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Visits" EntityType="AnalyticsModel.Store.Visits" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_SiteVisit" Association="AnalyticsModel.Store.FK_SiteVisit">
+      <End Role="Sites" EntitySet="Sites" />
+      <End Role="Visits" EntitySet="Visits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSite" Association="AnalyticsModel.Store.FK_UserSite">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sites" EntitySet="Sites" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Sites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Visits">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Ip" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Browser" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PageUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CallTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExitTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Referral" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Os" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SiteId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_SiteVisit">
+    <End Role="Sites" Type="AnalyticsModel.Store.Sites" Multiplicity="1" />
+    <End Role="Visits" Type="AnalyticsModel.Store.Visits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sites">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visits">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSite">
+    <End Role="Users" Type="AnalyticsModel.Store.Users" Multiplicity="1" />
+    <End Role="Sites" Type="AnalyticsModel.Store.Sites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sites">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AnalyticsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -154,45 +153,44 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AnalyticsModelStoreContainer" CdmEntityContainer="AnalyticsEntities">
-          <EntitySetMapping Name="Sites">
-            <EntityTypeMapping TypeName="AnalyticsModel.Sites">
-              <MappingFragment StoreEntitySet="Sites">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="AnalyticsModel.Users">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Visits">
-            <EntityTypeMapping TypeName="AnalyticsModel.Visits">
-              <MappingFragment StoreEntitySet="Visits">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Ip" ColumnName="Ip" />
-                <ScalarProperty Name="Browser" ColumnName="Browser" />
-                <ScalarProperty Name="PageUrl" ColumnName="PageUrl" />
-                <ScalarProperty Name="CallTime" ColumnName="CallTime" />
-                <ScalarProperty Name="ExitTime" ColumnName="ExitTime" />
-                <ScalarProperty Name="Referral" ColumnName="Referral" />
-                <ScalarProperty Name="Os" ColumnName="Os" />
-                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AnalyticsModelStoreContainer" CdmEntityContainer="AnalyticsEntities">
+    <EntitySetMapping Name="Sites">
+      <EntityTypeMapping TypeName="IsTypeOf(AnalyticsModel.Sites)">
+        <MappingFragment StoreEntitySet="Sites">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(AnalyticsModel.Users)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visits">
+      <EntityTypeMapping TypeName="IsTypeOf(AnalyticsModel.Visits)">
+        <MappingFragment StoreEntitySet="Visits">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="Browser" ColumnName="Browser" />
+          <ScalarProperty Name="PageUrl" ColumnName="PageUrl" />
+          <ScalarProperty Name="CallTime" ColumnName="CallTime" />
+          <ScalarProperty Name="ExitTime" ColumnName="ExitTime" />
+          <ScalarProperty Name="Referral" ColumnName="Referral" />
+          <ScalarProperty Name="Os" ColumnName="Os" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -206,7 +204,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
       </DesignerInfoPropertySet>
     </Options>
