@@ -3,6 +3,7 @@ using System.ServiceModel.Activation;
 using System.Web.Routing;
 using AnalyticsServer.Services;
 using System.Diagnostics;
+using System.ServiceModel.Web;
 
 namespace AnalyticsServer
 {
@@ -16,6 +17,8 @@ namespace AnalyticsServer
             RouteTable.Routes.Add(new ServiceRoute("users", new WebServiceHostFactory(), typeof(UsersService)));
             RouteTable.Routes.Add(new ServiceRoute("visits", new WebServiceHostFactory(), typeof(VisitsService)));
             RouteTable.Routes.Add(new ServiceRoute("embed", new WebServiceHostFactory(), typeof(EmbedService)));
+            RouteTable.Routes.Add(new ServiceRoute("auth", new WebServiceHostFactory(), typeof(AuthService)));
+
         }
 
 
@@ -32,6 +35,9 @@ namespace AnalyticsServer
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
             Debug.WriteLine("Authenticate Request");
+            Authorize auth = new Authorize();
+            Debug.WriteLine(sender.ToString());
+            Context.Response.StatusCode = (int) System.Net.HttpStatusCode.Unauthorized;
         }
 
         protected void Application_Error(object sender, EventArgs e)

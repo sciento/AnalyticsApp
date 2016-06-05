@@ -102,6 +102,12 @@
     <Compile Include="Models\Visits.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\Auth\Authorize.cs" />
+    <Compile Include="Services\Auth\AuthAttribute.cs" />
+    <Compile Include="Services\Auth\AuthService.svc.cs">
+      <DependentUpon>AuthService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Auth\IAuthService.cs" />
     <Compile Include="Services\Embed\EmbedService.svc.cs">
       <DependentUpon>EmbedService.svc</DependentUpon>
     </Compile>
@@ -131,6 +137,7 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Services\Auth\AuthService.svc" />
     <Content Include="Services\Embed\EmbedService.svc" />
     <Content Include="Services\Users\UsersService.svc" />
     <Content Include="Services\Analyse\AnalyseService.svc" />
@@ -161,6 +168,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

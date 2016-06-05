@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using AnalyticsServer.Models;
-using AnalyticsServer.Interfaces;
 using System.ServiceModel.Web;
 using System.ServiceModel.Activation;
+using AnalyticsServer.Models;
+using AnalyticsServer.Interfaces;
+using AnalyticsServer.Services;
 
 namespace AnalyticsServer.Services
 {
@@ -14,11 +13,12 @@ namespace AnalyticsServer.Services
     {
         private AnalyticsEntities AE = new AnalyticsEntities();
 
+       
         [WebInvoke(Method = "GET", UriTemplate = "/{id}", ResponseFormat = WebMessageFormat.Json)]
         public Response<Users> Get(string id)
         {
             // Test
-            Response<Users> response = new Response<Users>();
+        Response<Users> response = new Response<Users>();
             response.Items = AE.Users.ToList();
             return response;
 
