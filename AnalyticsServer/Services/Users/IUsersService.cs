@@ -12,12 +12,30 @@ namespace AnalyticsServer.Interfaces
     public interface IUsersService
     {
         [OperationContract]
-        String Root();
+        Response<Users> Save();
 
         [OperationContract]
-        String Test();
+        Response<Users> Get(string id);
 
+        [OperationContract]
+        Response<Users> Remove(string id);
 
+        [OperationContract]
+        Response<Users> Update(string id);
 
+        [OperationContract]
+        Response<Users> SaveSite(string id);
+
+        [OperationContract]
+        Response<Users> GetUserSites(string id);
+
+        [OperationContract]
+        Response<Users> GetUserSite(string id, string pid);
+
+        [OperationContract]
+        Response<Users> UpdateUserSite(string id, string pid);
+
+        [OperationContract]
+        Response<Users> RemoveUserSite(string id, string pid);
     }
 }

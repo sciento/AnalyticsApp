@@ -1,1 +1,0 @@
-﻿<%@ServiceHost language=c# Debug="true" Service="AnalyticsServer.Services.VisitService" CodeBehind="SitesService.svc.cs"%>

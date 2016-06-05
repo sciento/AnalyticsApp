@@ -12,18 +12,50 @@ namespace AnalyticsServer.Services
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class UsersService : IUsersService
     {
-        [WebInvoke(Method="GET", UriTemplate="", ResponseFormat = WebMessageFormat.Xml)]
-        public string Root()
+        [WebInvoke(Method = "GET", UriTemplate = "/{id}", ResponseFormat = WebMessageFormat.Json)]
+        public Response<Users> Get(string id)
         {
-
-            return "API Online";
-
+            throw new NotImplementedException();
         }
-
-        [WebInvoke(Method = "GET", UriTemplate = "test", ResponseFormat = WebMessageFormat.Xml)]
-        public string Test()
+        [WebInvoke(Method = "DELETE", UriTemplate = "/{id}", ResponseFormat = WebMessageFormat.Json)]
+        public Response<Users> Remove(string id)
         {
-            return "test";
+            throw new NotImplementedException();
+        }
+        [WebInvoke(Method = "DELETE", UriTemplate = "/sites/{id}/{pid}", ResponseFormat = WebMessageFormat.Json)]
+        public Response<Users> RemoveUserSite(string id, string pid)
+        {
+            throw new NotImplementedException();
+        }
+        [WebInvoke(Method = "POST", UriTemplate = "/", ResponseFormat = WebMessageFormat.Json)]
+        public Response<Users> Save()
+        {
+            throw new NotImplementedException();
+        }
+        [WebInvoke(Method = "POST", UriTemplate = "/sites/{id}", ResponseFormat = WebMessageFormat.Json)]
+        public Response<Users> SaveSite(string id)
+        {
+            throw new NotImplementedException();
+        }
+        [WebInvoke(Method = "PUT", UriTemplate = "/{id}", ResponseFormat = WebMessageFormat.Json)]
+        public Response<Users> Update(string id)
+        {
+            throw new NotImplementedException();
+        }
+        [WebInvoke(Method = "PUT", UriTemplate = "/sites/{id}/{pid}", ResponseFormat = WebMessageFormat.Json)]
+        public Response<Users> UpdateUserSite(string id, string pid)
+        {
+            throw new NotImplementedException();
+        }
+        [WebInvoke(Method = "GET", UriTemplate = "/sites/{id}/{pid}", ResponseFormat = WebMessageFormat.Json)]
+        public Response<Users> GetUserSite(string id, string pid)
+        {
+            throw new NotImplementedException();
+        }
+        [WebInvoke(Method = "GET", UriTemplate = "/sites/{id}", ResponseFormat = WebMessageFormat.Json)]
+        public Response<Users> GetUserSites(string id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

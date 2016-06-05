@@ -11,7 +11,7 @@ namespace AnalyticsServer.Interfaces
     public interface IEmbedService
     {
         [OperationContract]
-        string Get(string test);
+        string GetScript(string id);
 
 
 

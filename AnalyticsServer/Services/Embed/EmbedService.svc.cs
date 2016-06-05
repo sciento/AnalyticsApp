@@ -13,10 +13,10 @@ namespace AnalyticsServer.Services
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class EmbedService : IEmbedService
     {
-        [WebInvoke(Method="GET", UriTemplate= "get/{test}", ResponseFormat = WebMessageFormat.Json)]
-        public string Get(string test)
+        [WebInvoke(Method="GET", UriTemplate= "/{id}", ResponseFormat = WebMessageFormat.Json)]
+        public string GetScript(string id)
         {
-            return "get" + test;
+            return "Script: " + id;
 
         }
 

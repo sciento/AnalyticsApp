@@ -11,14 +11,33 @@ using System.ServiceModel;
 namespace AnalyticsServer.Services
 {
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-    public class VisitorsService : IVistorsService
+    public class VisitsService : IVisitsService
     {
-        [WebInvoke(Method="GET", UriTemplate= "get/{test}", ResponseFormat = WebMessageFormat.Json)]
-        public string Get(string test)
+
+        [WebInvoke(Method = "GET", UriTemplate = "/{uid}", ResponseFormat = WebMessageFormat.Json)]
+        public string GetAllVisits(string uid)
         {
-            return "get" + test;
-
+            throw new NotImplementedException();
         }
-
+        [WebInvoke(Method = "GET", UriTemplate = "/{uid}/{pid}", ResponseFormat = WebMessageFormat.Json)]
+        public string GetPageVisits(string uid, string pid)
+        {
+            throw new NotImplementedException();
+        }
+        [WebInvoke(Method = "GET", UriTemplate = "/{uid}/{pid}/date/{date}", ResponseFormat = WebMessageFormat.Json)]
+        public string GetPageVisitsByDate(string uid, string pid, string date)
+        {
+            throw new NotImplementedException();
+        }
+        [WebInvoke(Method = "GET", UriTemplate = "/{uid}/{pid}/week/{week}", ResponseFormat = WebMessageFormat.Json)]
+        public string GetPageVisitsByWeek(string uid, string pid, string week)
+        {
+            throw new NotImplementedException();
+        }
+        [WebInvoke(Method = "POST", UriTemplate = "/{uid}/{pid}", ResponseFormat = WebMessageFormat.Json)]
+        public string SaveVisit(string uid, string pid)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
