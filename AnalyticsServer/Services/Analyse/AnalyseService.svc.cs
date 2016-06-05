@@ -15,11 +15,6 @@ namespace AnalyticsServer.Services
     {
         private AnalyticsEntities AE = new AnalyticsEntities();
         
-        public AnalyseSerivce()
-        {
-            AE.Configuration.ProxyCreationEnabled = false;
-
-        }
 
         [WebInvoke(Method = "GET", UriTemplate = "/most/{uid}/{pid}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         public string GetMost(string uid, string pid)

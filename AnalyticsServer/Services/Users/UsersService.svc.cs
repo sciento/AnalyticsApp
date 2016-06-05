@@ -12,10 +12,16 @@ namespace AnalyticsServer.Services
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class UsersService : IUsersService
     {
+        private AnalyticsEntities AE = new AnalyticsEntities();
+
         [WebInvoke(Method = "GET", UriTemplate = "/{id}", ResponseFormat = WebMessageFormat.Json)]
         public Response<Users> Get(string id)
         {
-            throw new NotImplementedException();
+            // Test
+            Response<Users> response = new Response<Users>();
+            response.Items = AE.Users.ToList();
+            return response;
+
         }
         [WebInvoke(Method = "DELETE", UriTemplate = "/{id}", ResponseFormat = WebMessageFormat.Json)]
         public Response<Users> Remove(string id)
