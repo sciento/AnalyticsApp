@@ -3,7 +3,7 @@
 ## ADD Web.config
 
 Web.config
-.AnalyticsServer/Web.config
+/AnalyticsServer/Web.config
 /Web.config
 # User-specific files
 *.suo

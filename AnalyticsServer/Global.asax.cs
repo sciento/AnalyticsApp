@@ -11,8 +11,7 @@ namespace AnalyticsServer
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            Console.WriteLine("Application Start");
-            Debug.WriteLine("test");
+            Debug.WriteLine("Application Start");
             RouteTable.Routes.Add(new ServiceRoute("analyses", new WebServiceHostFactory(), typeof(AnalyseSerivce)));
             RouteTable.Routes.Add(new ServiceRoute("users", new WebServiceHostFactory(), typeof(UsersService)));
             RouteTable.Routes.Add(new ServiceRoute("visits", new WebServiceHostFactory(), typeof(VisitsService)));
@@ -22,32 +21,32 @@ namespace AnalyticsServer
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            Console.WriteLine("Session Start");
+            Debug.WriteLine("Session Start");
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            Console.WriteLine("Beginn Request");
+            Debug.WriteLine("Beginn Request");
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
-            Console.WriteLine("Authenticate Request");
+            Debug.WriteLine("Authenticate Request");
         }
 
         protected void Application_Error(object sender, EventArgs e)
         {
-            Console.WriteLine("Application Error");
+            Debug.WriteLine("Application Error");
         }
 
         protected void Session_End(object sender, EventArgs e)
         {
-            Console.WriteLine("Session End");
+            Debug.WriteLine("Session End");
         }
 
         protected void Application_End(object sender, EventArgs e)
         {
-            Console.WriteLine("Application End");
+            Debug.WriteLine("Application End");
 
         }
     }
