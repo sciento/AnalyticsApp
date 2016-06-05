@@ -9,7 +9,11 @@ namespace AnalyticsApp
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/dashboard").Include(
+                "~/Scripts/rx.lite.js",
                 "~/Scripts/App/dashboard.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/rxjs").Include(
+                "~/Scripts/rx.all.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));

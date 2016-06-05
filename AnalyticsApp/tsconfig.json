@@ -1,18 +1,15 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
-    "noImplicitAny": true,
     "noEmitOnError": true,
+    "noImplicitAny": true,
+    "outDir": "./Scripts/App",
     "removeComments": false,
     "sourceMap": true,
-    "target": "es5",
-    "outDir": "./Scripts/App"
+    "target": "es5"
   },
   "files": [
-    "./src/dashboard.ts"
-  ],
-  "compileOnSave": true,
-  "exclude": [
-    "node_modules",
-    "wwwroot"
+    "./src/dashboard.ts",
+    "./Scripts/rx.lite.d.ts"
   ]
 }
