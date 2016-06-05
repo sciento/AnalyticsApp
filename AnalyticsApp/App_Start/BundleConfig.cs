@@ -8,6 +8,14 @@ namespace AnalyticsApp
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/dashboard").Include(
+                "~/Scripts/Chart.js",
+                "~/Scripts/rx.lite.js",
+                "~/Scripts/App/dashboard.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/rxjs").Include(
+                "~/Scripts/rx.all.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
