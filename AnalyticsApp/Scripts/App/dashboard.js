@@ -1,40 +1,51 @@
-Rx.Observable.fromEvent(document, "DOMContentLoaded").subscribe(function (evt) {
-    console.log("Hello from dashboard.ts");
-    var canvas = document.getElementById("exampleChart");
-    var ctx = canvas.getContext("2d");
-    var visitsByCountryChart = new Chart(ctx, {
-        type: "horizontalBar",
-        data: {
-            labels: ["Australia", "Austria", "Germany", "Italy", "USA"],
-            datasets: [{
-                    label: "Visits by Country",
-                    data: [230, 210, 310, 280, 370],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                    ],
-                    borderWidth: 1
-                }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
+var AnalyticsApp;
+(function (AnalyticsApp) {
+    var Observable = Rx.Observable;
+    var Statistics = AnalyticsApp.StatisticsServices;
+    Observable.fromEvent(document, "DOMContentLoaded").subscribe(function (evt) {
+        var canvas = document.getElementById("exampleChart");
+        var ctx = canvas.getContext("2d");
+        // TODO this is just example data
+        Statistics.Visits.getAllByCountry("1")
+            .reduce(function (acc, data) {
+            acc.labels.push(data.country);
+            acc.data.push(data.visits);
+            var rgb = "rgba(" + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255);
+            acc.backgroundColors.push(rgb + ",0.2)");
+            acc.borderColors.push(rgb + ",1.0)");
+            return acc;
+        }, {
+            labels: [],
+            data: [],
+            backgroundColors: [],
+            borderColors: []
+        })
+            .map(function (chartData) { return ({
+            type: "horizontalBar",
+            data: {
+                labels: chartData.labels,
+                datasets: [{
+                        label: "Visits By Country",
+                        data: chartData.data,
+                        backgroundColor: chartData.backgroundColors,
+                        borderColor: chartData.borderColors,
+                        borderWidth: 1
                     }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                }
             }
-        }
+        }); })
+            .subscribe(function (chartConfig) {
+            console.log(chartConfig);
+            var chart = new Chart(ctx, chartConfig);
+        }, function (e) { return console.log(e); });
     });
-});
+})(AnalyticsApp || (AnalyticsApp = {}));
 //# sourceMappingURL=dashboard.js.map
