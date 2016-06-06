@@ -4,30 +4,34 @@ using System.Linq;
 using System.ServiceModel;
 using AnalyticsServer.Models;
 using System.Web;
-using System.ServiceModel.Web;
 using AnalyticsServer.Services;
 
 namespace AnalyticsServer.Interfaces
 {
     [ServiceContract]
-    public interface IUsersService
+    public interface ISitesService
     {
         [Auth]
         [OperationContract]
-        Response<Users> Save();
+        Response<Users> Save(string id);
 
         [Auth]
         [OperationContract]
-        Response<Users> Get();
+        Response<Sites> GetAll(string id);
 
         [Auth]
         [OperationContract]
-        Response<Users> Remove(string id);
+        Response<Sites> Get(string id, string pid);
 
         [Auth]
         [OperationContract]
-        Response<Users> Update(string id);
+        Response<Sites> Update(string id, string pid);
 
-        
+        [Auth]
+        [OperationContract]
+        Response<Users> Remove(string id, string pid);
+
+
+
     }
 }
