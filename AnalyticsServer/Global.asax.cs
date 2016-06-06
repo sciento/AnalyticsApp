@@ -23,6 +23,7 @@ namespace AnalyticsServer
         {
 
             Debug.WriteLine("Application Start");
+            RouteTable.Routes.Add(new ServiceRoute("sites", new WebServiceHostFactory(), typeof(SitesService)));
             RouteTable.Routes.Add(new ServiceRoute("analyses", new WebServiceHostFactory(), typeof(AnalyseSerivce)));
             RouteTable.Routes.Add(new ServiceRoute("users", new WebServiceHostFactory(), typeof(UsersService)));
             RouteTable.Routes.Add(new ServiceRoute("visits", new WebServiceHostFactory(), typeof(VisitsService)));

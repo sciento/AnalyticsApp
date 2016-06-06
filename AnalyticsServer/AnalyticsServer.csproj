@@ -113,6 +113,11 @@
     </Compile>
     <Compile Include="Services\Auth\Crypt.cs" />
     <Compile Include="Services\Auth\IAuthService.cs" />
+    <Compile Include="Services\Auth\RequestUser.cs" />
+    <Compile Include="Services\Sites\SitesService.svc.cs">
+      <DependentUpon>SitesService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Sites\ISitesService.cs" />
     <Compile Include="Services\Embed\EmbedService.svc.cs">
       <DependentUpon>EmbedService.svc</DependentUpon>
     </Compile>
@@ -143,6 +148,7 @@
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
     <Content Include="Services\Auth\AuthService.svc" />
+    <Content Include="Services\Sites\SitesService.svc" />
     <Content Include="Services\Embed\EmbedService.svc" />
     <Content Include="Services\Users\UsersService.svc" />
     <Content Include="Services\Analyse\AnalyseService.svc" />

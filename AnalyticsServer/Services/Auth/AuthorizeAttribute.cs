@@ -1,4 +1,5 @@
 ﻿using AnalyticsServer.Models;
+using AnalyticsServer.Services;
 using AnalyticsServer.Services.Auth;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,8 @@ namespace AnalyticsServer.Services
                     authCookie.Expires = DateTime.Now.AddDays(1d);
                     authCookie.Value = Crypt.Encrypt(authCookie.Value);
                     HttpContext.Current.Response.Cookies.Add(authCookie);
+
+
                 }
                     
 

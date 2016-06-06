@@ -1,29 +1,79 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>API</title>
+    <title>API - Test</title>
 	<meta charset="utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
 </head>
+<style>
+    body{
+        font-family: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+    }
+    h1,h2,h3,h4{
+        margin: 10px 25px;
+        font-family: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+    }
+    pre{
+        display:block; 
+        padding: 25px;
+        margin: 0 25px;
+        background: lightgoldenrodyellow;
+        border: 1px solid rosybrown; 
+    }
+    pre.error{
+        background: lightpink;
+    }
+    label{
+        margin: 25px 0 0 25px;
+        display:block; 
+    }
+    label span{
+        font-weight: bold;
+    }
+    div.area{
+        display:block; 
+        padding: 25px;
+        margin: 0 25px;
+        background: whitesmoke;
+        border: 1px solid lightskyblue; 
+    }
+    div.area div{
+        margin: 5px 0;;
+    }
+    </style>
 <body>
     <h1>WebAnalytics API</h1>
+    <h3>Auth</h3>    
+    <div class="area">
+        <div>[POST]</div>
+        <button onClick="Login()">Login</button>
+        <button onClick="Logout()">Logout</button>
+        <div>
+            <span>Login with "TestUser"</span>
+        </div>
+    </div>
+    <h3>USERS</h3>
+    <pre class="data" data-method="GET" data-route="/users/" data-info="Personal Account Information"></pre>
+    <pre class="data" data-method="GET" data-route="/users/test" data-info="Test for no method"></pre>
+    <h3>VISITS</h3>
+    <pre class="data" data-method="POST" data-route="/users/sites" data-info="Get UserSites"></pre>
+    <pre class="data" data-method="GET" data-route="/users/sites/id" data-info="Alle Seiten eines Benutzers"></pre>
+    <pre class="data" data-method="GET" data-route="/users/sites/id/pid" data-info="Seite eines Benutzers"></pre>
+    <pre class="data" data-method="PUT" data-route="/users/sites/id/pid" data-info="Seite eines Benutzers Bearbeiten"></pre>
+    <pre class="data" data-method="DELETE" data-route="/users/sites/id/pid" data-info="Seite eines Benutzers Löschen"></pre>
     
-    <button onClick="Login()">Login</button>
-    <button onClick="Logout()">Logout</button>
-    <div id="data"></div>
 <script>
          function Login() {
 
              var authRequest = {
                  username: "TestUser",
                  password: "test"
-                 
              };
 
              $.ajax({
                  type: "POST",
-                 url: "http://localhost:37491/auth/",
+                 url: "/auth/",
                  data: JSON.stringify(authRequest),
                  contentType: "application/json; charset=utf-8",
                  processData: true,
@@ -44,18 +94,33 @@
             location.reload();
          };
          
-          $.ajax({
-                 type: "GET",
-                 url: "./users/test",
-                 contentType: "application/json; charset=utf-8",
-                 processData: true,
-                 success: function (data, status, jqXHR) {
-                        $("#data").text(JSON.stringify(data));
-                 },
-                 error: function (xhr, status, test) {
-                        $("#data").text(JSON.stringify(xhr.responseJSON));
-                 }
-             });
+         function Get(route, id){
+             
+            $.ajax({
+                    type: "GET",
+                    url: route,
+                    contentType: "application/json; charset=utf-8",
+                    processData: true,
+                    success: function (data, status, jqXHR) {
+                            $("#"+id).text(JSON.stringify(data));
+                    },
+                    error: function (xhr, status, test) {
+                            $("#"+id).text(JSON.stringify(xhr.status + " - " + xhr.statusText)).addClass("error");
+                    }
+                });
+         }
+         
+         $("pre.data").each(function(i){
+             var id = "data-"+i;
+             var data = $(this).data();
+             
+             $(this).attr("id", id)
+             $(this).before("<label>["+data.method+"] <span>"+data.route+"</span> <i>"+data.info+"</i></label>");
+             if(data.method == "GET")
+                Get(data.route, id);
+         });
+
+             
          
            
 </script>
