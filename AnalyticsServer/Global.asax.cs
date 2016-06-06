@@ -4,14 +4,24 @@ using System.Web.Routing;
 using AnalyticsServer.Services;
 using System.Diagnostics;
 using System.ServiceModel.Web;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
+using System.Security.Permissions;
+using System.Web;
+using System.Web.Security;
+using System.Security.Principal;
+using System.Threading;
+using System.Net;
 
 namespace AnalyticsServer
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
 
         protected void Application_Start(object sender, EventArgs e)
         {
+
             Debug.WriteLine("Application Start");
             RouteTable.Routes.Add(new ServiceRoute("analyses", new WebServiceHostFactory(), typeof(AnalyseSerivce)));
             RouteTable.Routes.Add(new ServiceRoute("users", new WebServiceHostFactory(), typeof(UsersService)));
@@ -22,22 +32,39 @@ namespace AnalyticsServer
         }
 
 
-        protected void Session_Start(object sender, EventArgs e)
-        {
-            Debug.WriteLine("Session Start");
-        }
-
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
             Debug.WriteLine("Beginn Request");
+            GenericIdentity identity = new GenericIdentity("M.Brown");
+            System.Threading.Thread.CurrentPrincipal =
+                 new GenericPrincipal(
+                     identity, new string[] { "Administrators" }
+                 );
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
-            Debug.WriteLine("Authenticate Request");
-            Authorize auth = new Authorize();
-            Debug.WriteLine(sender.ToString());
-            Context.Response.StatusCode = (int) System.Net.HttpStatusCode.Unauthorized;
+            HttpCookieCollection headers = Context.Request.Cookies;
+            foreach (string cookie in headers)
+            {
+                Debug.WriteLine(cookie);
+
+
+            }
+
+            if (Request.Cookies["UserSettings"] != null)
+            {
+                string userSettings;
+                if (Request.Cookies["UserSettings"]["Font"] != null)
+                {
+                    userSettings = Request.Cookies["UserSettings"]["Font"];
+                    Debug.WriteLine(userSettings);
+                }
+            }
+
+
+
+
         }
 
         protected void Application_Error(object sender, EventArgs e)
@@ -45,10 +72,6 @@ namespace AnalyticsServer
             Debug.WriteLine("Application Error");
         }
 
-        protected void Session_End(object sender, EventArgs e)
-        {
-            Debug.WriteLine("Session End");
-        }
 
         protected void Application_End(object sender, EventArgs e)
         {

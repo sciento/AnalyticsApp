@@ -1,11 +1,44 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>API</title>
 	<meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
 </head>
 <body>
     <h1>WebAnalytics API</h1>
+<script>
+         function SaveBook() {
+
+             var authRequest = {
+                 username: "TestUser",
+                 password: "test"
+                 
+             };
+
+             $.ajax({
+                 type: "POST",
+                 url: "http://localhost:37491/auth/",
+                 data: JSON.stringify(authRequest),
+                 contentType: "application/json; charset=utf-8",
+                 processData: true,
+                 success: function (data, status, jqXHR) {
+                    console.log(data);
+                    console.log(status);
+                    console.log(jqXHR);
+                 },
+                 error: function (xhr, status, test) {
+                     console.log(status);
+                     console.log(xhr);
+                     console.log(test);
+                     
+                 }
+             });
+         }  
+         
+         SaveBook();  
+</script>
     
 </body>
 </html>

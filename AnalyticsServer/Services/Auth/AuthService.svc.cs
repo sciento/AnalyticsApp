@@ -8,21 +8,22 @@ using System.ServiceModel.Web;
 using System.ServiceModel.Activation;
 using System.ServiceModel;
 using System.Diagnostics;
+using System.Security.Permissions;
+using System.Net;
 
 namespace AnalyticsServer.Services
 {
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class AuthService : IAuthService
     {
-        [Auth("public")]
-        [WebInvoke(Method="GET", UriTemplate= "/{id}", ResponseFormat = WebMessageFormat.Json)]
-        public string GetScript(string id)
+        [WebInvoke(Method="POST", UriTemplate= "/", RequestFormat = WebMessageFormat.Json)]
+        public void Auth(AuthRequest auth)
         {
+           // WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.OK;
 
-            Debug.WriteLine("test");
-            return "Script: " + id;
-
+            Authorize authorize = new Authorize(auth.username, auth.password);
         }
+
 
     }
 }

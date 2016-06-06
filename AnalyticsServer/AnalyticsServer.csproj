@@ -51,6 +51,8 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Routing" />
@@ -68,6 +70,7 @@
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -76,6 +79,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthRequest.cs" />
     <Compile Include="Models\DataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -92,7 +96,7 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Error.cs" />
-    <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\ResponseList.cs" />
     <Compile Include="Models\Sites.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -103,10 +107,11 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\Auth\Authorize.cs" />
-    <Compile Include="Services\Auth\AuthAttribute.cs" />
+    <Compile Include="Services\Auth\AuthorizeAttribute.cs" />
     <Compile Include="Services\Auth\AuthService.svc.cs">
       <DependentUpon>AuthService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Services\Auth\Crypt.cs" />
     <Compile Include="Services\Auth\IAuthService.cs" />
     <Compile Include="Services\Embed\EmbedService.svc.cs">
       <DependentUpon>EmbedService.svc</DependentUpon>
