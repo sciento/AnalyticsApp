@@ -39,10 +39,13 @@ namespace AnalyticsServer.Services
 
         public void SetCookie()
         {
+            Random rnd = new Random();
             HttpCookie authCookie = new HttpCookie("AuthCookie");
             authCookie["user"] = _username;
             authCookie["token"] = Crypt.Encrypt(_passwordHash);
+            authCookie["nonce"] = rnd.Next(1000,10000).ToString();
             authCookie.Expires = DateTime.Now.AddDays(1d);
+            authCookie.Value = Crypt.Encrypt(authCookie.Value);
             HttpContext.Current.Response.Cookies.Add(authCookie);
             WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.OK;
         }

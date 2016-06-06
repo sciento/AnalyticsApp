@@ -8,8 +8,12 @@
 </head>
 <body>
     <h1>WebAnalytics API</h1>
+    
+    <button onClick="Login()">Login</button>
+    <button onClick="Logout()">Logout</button>
+    <div id="data"></div>
 <script>
-         function SaveBook() {
+         function Login() {
 
              var authRequest = {
                  username: "TestUser",
@@ -24,20 +28,36 @@
                  contentType: "application/json; charset=utf-8",
                  processData: true,
                  success: function (data, status, jqXHR) {
-                    console.log(data);
-                    console.log(status);
-                    console.log(jqXHR);
+                        location.reload();
                  },
                  error: function (xhr, status, test) {
-                     console.log(status);
-                     console.log(xhr);
-                     console.log(test);
                      
                  }
              });
-         }  
+         }
          
-         SaveBook();  
+         function Logout(){
+             delete_cookie("AuthCookie");
+         }
+         function delete_cookie(name) {
+            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            location.reload();
+         };
+         
+          $.ajax({
+                 type: "GET",
+                 url: "./users/test",
+                 contentType: "application/json; charset=utf-8",
+                 processData: true,
+                 success: function (data, status, jqXHR) {
+                        $("#data").text(JSON.stringify(data));
+                 },
+                 error: function (xhr, status, test) {
+                        $("#data").text(JSON.stringify(xhr.responseJSON));
+                 }
+             });
+         
+           
 </script>
     
 </body>
