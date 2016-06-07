@@ -1,43 +1,56 @@
-﻿declare var Chart: any;
+﻿namespace AnalyticsApp {
+    import Observable = Rx.Observable;
+    import Statistics = AnalyticsApp.StatisticsServices;
 
-Rx.Observable.fromEvent(document, "DOMContentLoaded").subscribe(evt => {
-    console.log("Hello from dashboard.ts");
+    declare var Chart: any;
 
-    const canvas = <HTMLCanvasElement>document.getElementById("exampleChart");
-    const ctx = <CanvasRenderingContext2D>canvas.getContext("2d");
+    Observable.fromEvent(document, "DOMContentLoaded").subscribe(evt => {
+        const canvas = <HTMLCanvasElement>document.getElementById("exampleChart");
+        const ctx = <CanvasRenderingContext2D>canvas.getContext("2d");
 
-    const visitsByCountryChart = new Chart(ctx, {
-        type: "horizontalBar",
-        data: {
-            labels: ["Australia", "Austria", "Germany", "Italy", "USA"],
-            datasets: [{
-                label: "Visits by Country",
-                data: [230, 210, 310, 280, 370],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
+        // TODO this is just example data
+        Statistics.Visits.getAllByCountry("1")
+            .reduce((acc, data) => {
+                acc.labels.push(data.country);
+                acc.data.push(data.visits);
+
+                const rgb = `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)}`;
+                acc.backgroundColors.push(`${rgb},0.2)`);
+                acc.borderColors.push(`${rgb},1.0)`);
+
+                return acc;
+            }, {
+                labels: [] as Array<string>,
+                data: [] as Array<number>,
+                backgroundColors: [] as Array<string>,
+                borderColors: [] as Array<string>
+            })
+            .map(chartData => ({
+                type: "horizontalBar",
+                data: {
+                    labels: chartData.labels,
+                    datasets: [{
+                        label: "Visits By Country",
+                        data: chartData.data,
+                        backgroundColor: chartData.backgroundColors,
+                        borderColor: chartData.borderColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
                     }
-                }]
-            }
-        }
+                }
+            }))
+            .subscribe(chartConfig => {
+                console.log(chartConfig);
+                const chart = new Chart(ctx, chartConfig);
+            },
+            e => console.log(e));
     });
-});
+}

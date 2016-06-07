@@ -453,6 +453,7 @@
     <TypeScriptCompile Include="Scripts\rx.time.es6.d.ts" />
     <TypeScriptCompile Include="Scripts\rx.virtualtime.d.ts" />
     <TypeScriptCompile Include="Scripts\rx.virtualtime.es6.d.ts" />
+    <TypeScriptCompile Include="src\statisticsservices.ts" />
     <TypeScriptCompile Include="src\dashboard.ts" />
   </ItemGroup>
   <ItemGroup>
