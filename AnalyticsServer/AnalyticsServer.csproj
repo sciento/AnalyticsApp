@@ -106,14 +106,15 @@
     <Compile Include="Models\Visits.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Services\Auth\Authorize.cs" />
-    <Compile Include="Services\Auth\AuthorizeAttribute.cs" />
+    <Compile Include="Services\Auth\Auth.cs" />
+    <Compile Include="Services\Auth\AuthAttribute.cs" />
     <Compile Include="Services\Auth\AuthService.svc.cs">
       <DependentUpon>AuthService.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\Auth\Crypt.cs" />
     <Compile Include="Services\Auth\IAuthService.cs" />
     <Compile Include="Services\Auth\RequestUser.cs" />
+    <Compile Include="Services\Sites\SitesController.cs" />
     <Compile Include="Services\Sites\SitesService.svc.cs">
       <DependentUpon>SitesService.svc</DependentUpon>
     </Compile>
@@ -131,8 +132,8 @@
       <DependentUpon>AnalyseService.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\Visitors\IVisitsService.cs" />
-    <Compile Include="Services\Visitors\VisitorsService.svc.cs">
-      <DependentUpon>VisitorsService.svc</DependentUpon>
+    <Compile Include="Services\Visitors\VisitsService.svc.cs">
+      <DependentUpon>VisitsService.svc</DependentUpon>
     </Compile>
     <Content Include="Global.asax" />
     <Content Include="index.html" />
@@ -152,7 +153,7 @@
     <Content Include="Services\Embed\EmbedService.svc" />
     <Content Include="Services\Users\UsersService.svc" />
     <Content Include="Services\Analyse\AnalyseService.svc" />
-    <Content Include="Services\Visitors\VisitorsService.svc" />
+    <Content Include="Services\Visitors\VisitsService.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

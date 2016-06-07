@@ -1,1 +1,1 @@
-﻿<%@ServiceHost language=c# Debug="true" Service="AnalyticsServer.Services.VisitService" CodeBehind="AuthService.svc.cs"%>
+﻿<%@ServiceHost language=c# Debug="true" Service="AnalyticsServer.Services.AuthService" CodeBehind="AuthService.svc.cs"%>

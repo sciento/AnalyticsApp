@@ -54,6 +54,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -189,6 +191,36 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\Analyse\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Auth\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Embed\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Sites\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Users\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Visits\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +274,64 @@
     <Content Include="Scripts\rx.virtualtime.js" />
     <Content Include="Scripts\rx.virtualtime.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Service References\Analyse\AnalyseSerivce.wsdl" />
+    <None Include="Service References\Analyse\AnalyseService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Analyse\AnalyseService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Auth\AuthService.disco" />
+    <None Include="Service References\Auth\configuration91.svcinfo" />
+    <None Include="Service References\Auth\configuration.svcinfo" />
+    <None Include="Service References\Auth\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Analyse\AnalyseService.disco" />
+    <None Include="Service References\Analyse\configuration91.svcinfo" />
+    <None Include="Service References\Analyse\configuration.svcinfo" />
+    <None Include="Service References\Analyse\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Embed\EmbedService.disco" />
+    <None Include="Service References\Embed\configuration91.svcinfo" />
+    <None Include="Service References\Embed\configuration.svcinfo" />
+    <None Include="Service References\Embed\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\Sites\AnalyticsApp.Sites.ResponseOfSites5pAuinzC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Sites\AnalyticsApp.Sites.ResponseOfUsers5pAuinzC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\Sites\SitesService.disco" />
+    <None Include="Service References\Sites\configuration91.svcinfo" />
+    <None Include="Service References\Sites\configuration.svcinfo" />
+    <None Include="Service References\Sites\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\Users\AnalyticsApp.Users.ResponseOfUsers5pAuinzC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\Users\UsersService.disco" />
+    <None Include="Service References\Users\configuration91.svcinfo" />
+    <None Include="Service References\Users\configuration.svcinfo" />
+    <None Include="Service References\Users\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Visits\VisitsService.disco" />
+    <None Include="Service References\Visits\configuration91.svcinfo" />
+    <None Include="Service References\Visits\configuration.svcinfo" />
+    <None Include="Service References\Visits\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -278,6 +368,50 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="tsconfig.json" />
+    <None Include="Service References\Auth\AuthService.wsdl" />
+    <None Include="Service References\Auth\AuthService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Auth\AuthService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Auth\AuthService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Embed\EmbedService.wsdl" />
+    <None Include="Service References\Embed\EmbedService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Embed\EmbedService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Sites\SitesService.wsdl" />
+    <None Include="Service References\Sites\SitesService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Sites\SitesService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Sites\SitesService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Users\UsersService.wsdl" />
+    <None Include="Service References\Users\UsersService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Users\UsersService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Users\UsersService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Visits\VisitsService.wsdl" />
+    <None Include="Service References\Visits\VisitsService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Visits\VisitsService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -320,6 +454,17 @@
     <TypeScriptCompile Include="Scripts\rx.virtualtime.d.ts" />
     <TypeScriptCompile Include="Scripts\rx.virtualtime.es6.d.ts" />
     <TypeScriptCompile Include="src\dashboard.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Analyse\" />
+    <WCFMetadataStorage Include="Service References\Auth\" />
+    <WCFMetadataStorage Include="Service References\Embed\" />
+    <WCFMetadataStorage Include="Service References\Sites\" />
+    <WCFMetadataStorage Include="Service References\Users\" />
+    <WCFMetadataStorage Include="Service References\Visits\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

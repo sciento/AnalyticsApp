@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AnalyseSerivce" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:37491/Services/Analyse/AnalyseService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:37491/Services/Analyse/AnalyseService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAnalyseSerivce_GetMost_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMost" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetMost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetMostByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostByDate" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetMostByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetMostByWeek_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostByWeek" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetMostByWeek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostByWeekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsTimeAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsTimeAll" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsTimeAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsTimeAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsTimeByDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsTimeByDay" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsTimeByDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsTimeByDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsTimeByWeek_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsTimeByWeek" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsTimeByWeek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsTimeByWeekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsByBrowser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsByBrowser" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsByBrowser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsByBrowserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsByOs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsByOs" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsByOs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsByOsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsByCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsByCountry" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsByCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsByCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsByReferral_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsByReferral" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyseSerivce_GetVisitsByReferral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitsByReferralResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAnalyseSerivce">
+    <wsdl:operation name="GetMost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetMost" message="tns:IAnalyseSerivce_GetMost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetMostResponse" message="tns:IAnalyseSerivce_GetMost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMostByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetMostByDate" message="tns:IAnalyseSerivce_GetMostByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetMostByDateResponse" message="tns:IAnalyseSerivce_GetMostByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMostByWeek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetMostByWeek" message="tns:IAnalyseSerivce_GetMostByWeek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetMostByWeekResponse" message="tns:IAnalyseSerivce_GetMostByWeek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsTimeAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsTimeAll" message="tns:IAnalyseSerivce_GetVisitsTimeAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsTimeAllResponse" message="tns:IAnalyseSerivce_GetVisitsTimeAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsTimeByDay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsTimeByDay" message="tns:IAnalyseSerivce_GetVisitsTimeByDay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsTimeByDayResponse" message="tns:IAnalyseSerivce_GetVisitsTimeByDay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsTimeByWeek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsTimeByWeek" message="tns:IAnalyseSerivce_GetVisitsTimeByWeek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsTimeByWeekResponse" message="tns:IAnalyseSerivce_GetVisitsTimeByWeek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsByBrowser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsByBrowser" message="tns:IAnalyseSerivce_GetVisitsByBrowser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsByBrowserResponse" message="tns:IAnalyseSerivce_GetVisitsByBrowser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsByOs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsByOs" message="tns:IAnalyseSerivce_GetVisitsByOs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsByOsResponse" message="tns:IAnalyseSerivce_GetVisitsByOs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsByCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsByCountry" message="tns:IAnalyseSerivce_GetVisitsByCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsByCountryResponse" message="tns:IAnalyseSerivce_GetVisitsByCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsByReferral">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsByReferral" message="tns:IAnalyseSerivce_GetVisitsByReferral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsByReferralResponse" message="tns:IAnalyseSerivce_GetVisitsByReferral_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="AnalyseSerivce" />
+</wsdl:definitions>

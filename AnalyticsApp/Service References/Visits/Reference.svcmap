@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d2150970-a961-4dae-a2bf-0b6a63c4311c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:37491/Services/Visitors/VisitsService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VisitsService.wsdl" MetadataType="Wsdl" ID="080f888b-a731-4613-b56f-fafd0cb78813" SourceId="1" SourceUrl="http://localhost:37491/Services/Visitors/VisitsService.svc?wsdl" />
+    <MetadataFile FileName="VisitsService.xsd" MetadataType="Schema" ID="b70502fe-cda3-4754-bfbf-e513b4a6a761" SourceId="1" SourceUrl="http://localhost:37491/Services/Visitors/VisitsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VisitsService.disco" MetadataType="Disco" ID="f40abc6e-9421-495d-b7e3-429799379acb" SourceId="1" SourceUrl="http://localhost:37491/Services/Visitors/VisitsService.svc?disco" />
+    <MetadataFile FileName="VisitsService1.xsd" MetadataType="Schema" ID="4758d6ee-6b54-4932-a0b7-8eb1ed7299c4" SourceId="1" SourceUrl="http://localhost:37491/Services/Visitors/VisitsService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
