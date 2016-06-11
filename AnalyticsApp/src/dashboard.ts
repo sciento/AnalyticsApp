@@ -1,15 +1,15 @@
 ﻿namespace AnalyticsApp {
     import Observable = Rx.Observable;
-    import Statistics = AnalyticsApp.StatisticsServices;
+    import Statistics = AnalyticsApp.StatisticsService;
 
     declare var Chart: any;
 
     Observable.fromEvent(document, "DOMContentLoaded").subscribe(evt => {
-        const canvas = <HTMLCanvasElement>document.getElementById("exampleChart");
-        const ctx = <CanvasRenderingContext2D>canvas.getContext("2d");
+        const canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("exampleChart");
+        const ctx: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
 
         // TODO this is just example data
-        Statistics.Visits.getAllByCountry("1")
+        Statistics.CountryStatistics.getByUserId("USER_1", "SITE_2")
             .reduce((acc, data) => {
                 acc.labels.push(data.country);
                 acc.data.push(data.visits);

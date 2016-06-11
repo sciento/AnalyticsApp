@@ -1,12 +1,12 @@
 var AnalyticsApp;
 (function (AnalyticsApp) {
     var Observable = Rx.Observable;
-    var Statistics = AnalyticsApp.StatisticsServices;
+    var Statistics = AnalyticsApp.StatisticsService;
     Observable.fromEvent(document, "DOMContentLoaded").subscribe(function (evt) {
         var canvas = document.getElementById("exampleChart");
         var ctx = canvas.getContext("2d");
         // TODO this is just example data
-        Statistics.Visits.getAllByCountry("1")
+        Statistics.CountryStatistics.getByUserId("USER_1", "SITE_2")
             .reduce(function (acc, data) {
             acc.labels.push(data.country);
             acc.data.push(data.visits);

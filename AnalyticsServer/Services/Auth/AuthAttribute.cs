@@ -1,26 +1,15 @@
 ﻿using AnalyticsServer.Models;
-using AnalyticsServer.Services;
 using AnalyticsServer.Services.Auth;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IdentityModel.Selectors;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Reflection;
-using System.Security.Permissions;
 using System.Security.Principal;
-using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Threading;
 using System.Web;
-using System.Web.Http;
-using System.Web.Http.Controllers;
-using System.Web.Security;
 
 namespace AnalyticsServer.Services
 {

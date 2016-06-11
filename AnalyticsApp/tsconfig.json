@@ -10,7 +10,7 @@
   },
   "files": [
     "./src/dashboard.ts",
-    "./src/statisticsservices.ts",
+    "./src/statisticsservice.ts",
     "./Scripts/rx.all.d.ts"
   ]
 }
