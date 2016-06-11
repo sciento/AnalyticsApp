@@ -6,7 +6,9 @@ var AnalyticsApp;
         var canvas = document.getElementById("exampleChart");
         var ctx = canvas.getContext("2d");
         // TODO this is just example data
-        Statistics.CountryStatistics.getByUserId("USER_1", "SITE_2")
+        Statistics.VisitStatistics.getAllByUserId(1).subscribe(function (x) { return console.log(x); }, function (e) { return console.log(e); });
+        Statistics.VisitStatistics.getByUserId(1, 2).subscribe(function (x) { return console.log(x); }, function (e) { return console.log(e); });
+        Statistics.CountryStatistics.getByUserId(1, 2)
             .reduce(function (acc, data) {
             acc.labels.push(data.country);
             acc.data.push(data.visits);

@@ -9,7 +9,11 @@
         const ctx: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
 
         // TODO this is just example data
-        Statistics.CountryStatistics.getByUserId("USER_1", "SITE_2")
+        Statistics.VisitStatistics.getAllByUserId(1).subscribe(x => console.log(x), e => console.log(e));
+
+        Statistics.VisitStatistics.getByUserId(1, 2).subscribe(x => console.log(x), e => console.log(e));
+
+        Statistics.CountryStatistics.getByUserId(1, 2)
             .reduce((acc, data) => {
                 acc.labels.push(data.country);
                 acc.data.push(data.visits);

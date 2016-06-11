@@ -14,65 +14,35 @@ var AnalyticsApp;
             }
             VisitStatistics.getByUserId = function (userId, siteId, config) {
                 if (config === void 0) { config = defaultConfig; }
-                // TODO
-                return Observable.from([
-                    {
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
+                return getContentOf("/api/visits/" + userId + "/" + siteId, function (o) { return ({
+                    site: {
+                        id: o.site.site_id,
+                        title: o.site.title,
+                        link: o.site.link,
+                        owner: {
+                            id: o.site.owner.user_id,
+                            displayName: o.site.owner.display_name
                         },
-                        averageVisitTime: 300,
-                        visits: 1337
-                    }]);
+                    },
+                    averageVisitTime: o.avg_visit_time,
+                    visits: o.visits
+                }); });
             };
             VisitStatistics.getAllByUserId = function (userId, config) {
                 if (config === void 0) { config = defaultConfig; }
-                // TODO
-                return Observable.from([
-                    {
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
+                return getContentOf("/api/visits/" + userId, function (o) { return ({
+                    site: {
+                        id: o.site.site_id,
+                        title: o.site.title,
+                        link: o.site.link,
+                        owner: {
+                            id: o.site.owner.user_id,
+                            displayName: o.site.owner.display_name
                         },
-                        averageVisitTime: 300,
-                        visits: 1337
                     },
-                    {
-                        site: {
-                            id: "2",
-                            title: "Test",
-                            link: "http://www.test.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        },
-                        averageVisitTime: 210,
-                        visits: 456
-                    },
-                    {
-                        site: {
-                            id: "3",
-                            title: "Lorem Ipsum",
-                            link: "http://www.loremipsum.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        },
-                        averageVisitTime: 426,
-                        visits: 1254
-                    }]);
+                    averageVisitTime: o.avg_visit_time,
+                    visits: o.visits
+                }); });
             };
             return VisitStatistics;
         }());
@@ -82,78 +52,19 @@ var AnalyticsApp;
             }
             CountryStatistics.getByUserId = function (userId, siteId, config) {
                 if (config === void 0) { config = defaultConfig; }
-                // TODO
-                return Observable.from([
-                    {
-                        country: "Australia",
-                        visits: Math.round(Math.random() * 500),
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
+                return getContentOf("/api/countries/" + userId + "/" + siteId, function (o) { return ({
+                    country: o.country,
+                    visits: o.visits,
+                    site: {
+                        id: o.site.site_id,
+                        title: o.site.title,
+                        link: o.site.link,
+                        owner: {
+                            id: o.site.owner.user_id,
+                            displayName: o.site.owner.display_name
                         }
-                    },
-                    {
-                        country: "Austria",
-                        visits: Math.round(Math.random() * 500),
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        }
-                    },
-                    {
-                        country: "Germany",
-                        visits: Math.round(Math.random() * 500),
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        }
-                    },
-                    {
-                        country: "Italy",
-                        visits: Math.round(Math.random() * 500),
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        }
-                    },
-                    {
-                        country: "USA",
-                        visits: Math.round(Math.random() * 500),
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        }
-                    }]);
-            };
-            CountryStatistics.getAllByUserId = function (userId, config) {
-                if (config === void 0) { config = defaultConfig; }
-                // TODO
-                return Observable.empty();
+                    }
+                }); });
             };
             return CountryStatistics;
         }());
@@ -162,11 +73,6 @@ var AnalyticsApp;
             function BrowserStatistics() {
             }
             BrowserStatistics.getByUserId = function (userId, config) {
-                if (config === void 0) { config = defaultConfig; }
-                // TODO
-                return Observable.empty();
-            };
-            BrowserStatistics.getAllByUserId = function (userId, config) {
                 if (config === void 0) { config = defaultConfig; }
                 // TODO
                 return Observable.empty();
@@ -182,17 +88,25 @@ var AnalyticsApp;
                 // TODO
                 return Observable.empty();
             };
-            OperatingSystemStatistics.getAllByUserId = function (userId, config) {
-                if (config === void 0) { config = defaultConfig; }
-                // TODO
-                return Observable.empty();
-            };
             return OperatingSystemStatistics;
         }());
         StatisticsService.OperatingSystemStatistics = OperatingSystemStatistics;
-        function getContentOf(url) {
-            // TODO make http request to server to get the actual data; call observer#onError() in case of an error
-            return Observable.empty();
+        function getContentOf(uri, transformer) {
+            return Observable.create(function (subscriber) {
+                fetch(uri)
+                    .then(function (response) { return response.json(); })
+                    .then(function (jsonResponse) {
+                    if (jsonResponse.error) {
+                        subscriber.onError(new Error(jsonResponse.error.message));
+                    }
+                    else {
+                        subscriber.onNext(jsonResponse);
+                        subscriber.onCompleted();
+                    }
+                })
+                    .catch(function (e) { return subscriber.onError(new Error(e)); });
+            }).flatMap(function (jsonResponse) { return Observable.from(jsonResponse.items); })
+                .map(transformer);
         }
     })(StatisticsService = AnalyticsApp.StatisticsService || (AnalyticsApp.StatisticsService = {}));
 })(AnalyticsApp || (AnalyticsApp = {}));

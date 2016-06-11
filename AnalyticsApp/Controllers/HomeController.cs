@@ -9,16 +9,10 @@ namespace AnalyticsApp.Controllers
     public class HomeController : Controller
     {
 
-        
         public ActionResult Index()
         {
-
-
-
             return View();
         }
-
-        public ActionResult Dashboard() => View();
 
         public ActionResult About()
         {

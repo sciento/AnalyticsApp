@@ -2,6 +2,8 @@
     export namespace StatisticsService {
         import Observable = Rx.Observable;
 
+        declare var fetch: any;
+
         interface ApiResponse<T> {
             items: Array<T>;
             error?: Error;
@@ -14,13 +16,13 @@
         }
 
         export interface User {
-            id: string;
+            id: number;
             displayName: string;
             sites?: Array<string>;
         }
 
         export interface Site {
-            id: string;
+            id: number;
             title: string;
             link: string;
             owner: User;
@@ -68,160 +70,64 @@
         const defaultConfig: StatisticConfig = { order: Order.ASCENDING, sortBy: "visits" };
 
         export class VisitStatistics {
-            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig): Observable<VisitStatistic> {
+            static getByUserId(userId: number, siteId: number, config: StatisticConfig = defaultConfig): Observable<VisitStatistic> {
 
-                // TODO
-                return Observable.from([
-                    {
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
+                return getContentOf(`/api/visits/${userId}/${siteId}`, o => ({
+                    site: {
+                        id: o.site.site_id,
+                        title: o.site.title,
+                        link: o.site.link,
+                        owner: {
+                            id: o.site.owner.user_id,
+                            displayName: o.site.owner.display_name
                         },
-                        averageVisitTime: 300,
-                        visits: 1337
-                    }]);
+                    },
+                    averageVisitTime: o.avg_visit_time,
+                    visits: o.visits
+                }));
             }
 
-            static getAllByUserId(userId: string, config: StatisticConfig = defaultConfig): Observable<VisitStatistic> {
+            static getAllByUserId(userId: number, config: StatisticConfig = defaultConfig): Observable<VisitStatistic> {
 
-                // TODO
-                return Observable.from([
-                    {
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
+                return getContentOf(`/api/visits/${userId}`, o => ({
+                    site: {
+                        id: o.site.site_id,
+                        title: o.site.title,
+                        link: o.site.link,
+                        owner: {
+                            id: o.site.owner.user_id,
+                            displayName: o.site.owner.display_name
                         },
-                        averageVisitTime: 300,
-                        visits: 1337
                     },
-                    {
-                        site: {
-                            id: "2",
-                            title: "Test",
-                            link: "http://www.test.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        },
-                        averageVisitTime: 210,
-                        visits: 456
-                    },
-                    {
-                        site: {
-                            id: "3",
-                            title: "Lorem Ipsum",
-                            link: "http://www.loremipsum.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        },
-                        averageVisitTime: 426,
-                        visits: 1254
-                    }]);
+                    averageVisitTime: o.avg_visit_time,
+                    visits: o.visits
+                }));
             }
         }
 
         export class CountryStatistics {
 
-            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig): Observable<CountryStatistic> {
+            static getByUserId(userId: number, siteId: number, config: StatisticConfig = defaultConfig): Observable<CountryStatistic> {
 
-                // TODO
-                return Observable.from([
-                    {
-                        country: "Australia",
-                        visits: Math.round(Math.random() * 500),
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
+                return getContentOf(`/api/countries/${userId}/${siteId}`, o => ({
+                    country: o.country,
+                    visits: o.visits,
+                    site: {
+                        id: o.site.site_id,
+                        title: o.site.title,
+                        link: o.site.link,
+                        owner: {
+                            id: o.site.owner.user_id,
+                            displayName: o.site.owner.display_name
                         }
-                    },
-                    {
-                        country: "Austria",
-                        visits: Math.round(Math.random() * 500),
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        }
-                    },
-                    {
-                        country: "Germany",
-                        visits: Math.round(Math.random() * 500),
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        }
-                    },
-                    {
-                        country: "Italy",
-                        visits: Math.round(Math.random() * 500),
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        }
-                    },
-                    {
-                        country: "USA",
-                        visits: Math.round(Math.random() * 500),
-                        site: {
-                            id: "1",
-                            title: "Example",
-                            link: "http://www.example.com",
-                            owner: {
-                                id: "1",
-                                displayName: "Homer J."
-                            }
-                        }
-                    }]);
-            }
-
-            static getAllByUserId(userId: string, config: StatisticConfig = defaultConfig): Observable<CountryStatistic> {
-
-                // TODO
-                return Observable.empty<CountryStatistic>();
+                    }
+                }));
             }
         }
 
         export class BrowserStatistics {
 
-            static getByUserId(userId: string, config: StatisticConfig = defaultConfig): Observable<BrowserStatistic> {
-
-                // TODO
-                return Observable.empty<BrowserStatistic>();
-            }
-
-            static getAllByUserId(userId: string, config: StatisticConfig = defaultConfig): Observable<BrowserStatistic> {
+            static getByUserId(userId: number, config: StatisticConfig = defaultConfig): Observable<BrowserStatistic> {
 
                 // TODO
                 return Observable.empty<BrowserStatistic>();
@@ -230,23 +136,28 @@
 
         export class OperatingSystemStatistics {
 
-            static getByUserId(userId: string, config: StatisticConfig = defaultConfig): Observable<OperatingSystemStatistic> {
-
-                // TODO
-                return Observable.empty<OperatingSystemStatistic>();
-            }
-
-            static getAllByUserId(userId: string, config: StatisticConfig = defaultConfig): Observable<OperatingSystemStatistic> {
+            static getByUserId(userId: number, config: StatisticConfig = defaultConfig): Observable<OperatingSystemStatistic> {
 
                 // TODO
                 return Observable.empty<OperatingSystemStatistic>();
             }
         }
 
-        function getContentOf(url: string): Observable<ApiResponse<any>> {
-
-            // TODO make http request to server to get the actual data; call observer#onError() in case of an error
-            return Observable.empty<ApiResponse<any>>();
+        function getContentOf<T>(uri: string, transformer: (o: any) => T): Observable<T> {
+            return Observable.create<ApiResponse<any>>(subscriber => {
+                fetch(uri)
+                    .then((response: any) => response.json())
+                    .then((jsonResponse: ApiResponse<any>) => {
+                        if (jsonResponse.error) {
+                            subscriber.onError(new Error(jsonResponse.error.message));
+                        } else {
+                            subscriber.onNext(jsonResponse);
+                            subscriber.onCompleted();
+                        }
+                    })
+                    .catch((e: any) => subscriber.onError(new Error(e)));
+            }).flatMap(jsonResponse => Observable.from(jsonResponse.items))
+                .map(transformer);
         }
     }
 }
