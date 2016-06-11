@@ -1,5 +1,5 @@
-﻿using AnalyticsServer.Models;
-using AnalyticsServer.Services.Auth;
+﻿using AnalyticsLibrary.Helpers;
+using AnalyticsServer.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
