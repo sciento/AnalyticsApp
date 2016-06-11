@@ -6,7 +6,7 @@
 - [TODO](#to-dos)
 - [Routing Plan](#routing-plan-api)
 - [Models](#models)
-- [JSON-Response](#json-response)
+- [JSON Response](#json response)
 
 
 ##To-Dos
@@ -77,11 +77,11 @@ ____
 |__Referral__|_string_|URL der vorher besuchten Seite|
 |__Os__|_string_|Betriebssystem|
 
-##JSON-Response
+##JSON Response
 
-###Wrapper-Object
-Allgemeines Wrapper-Object, welches bei jedem Response verwendet wird.
-Die eigentlichen Nachrichten befinden sich in *items*. 
+###Wrapper Object
+Allgemeines Wrapper object, welches bei jedem Response verwendet wird.
+Die eigentlichen Nachrichten befinden sich in *items*.
 ```json
 {
     "items": [],
@@ -98,45 +98,31 @@ Informationen zu einem User.
 ```json
 {
     "user_id": "",
-    "display_name: ""
+    "display_name": "",
+    "sites": []
 }
 ```
 
-###Visit
-Besuchsstatistik zu einer Seite.
+###Visit Statistics
+Besuchsstatistiken zu einer Seite.
 ```json
 {
     "site": {
         "site_id": "",
+        "title": "",
         "link": "",
         "owner": {
             "user_id": "",
             "display_name": ""
         }
     },
-    "call_time": "",
-    "exit_time": ""
-}
-```
-
-###Most-Visit
-Meistbesuchte Seiten.
-```json
-{
-    "site": {
-        "site_id": "",
-        "link": "",
-        "owner": {
-            "user_id": "",
-            "display_name": ""
-        }
-    },
+    "avg_visit_time": 0,
     "visits": 0
 }
 ```
 
 ###Browser Statistics
-Besucherstatistiken nach verwendeten Browser.
+Besuchsstatistiken nach verwendeten Browser.
 ```json
 {
     "name": "",
@@ -145,6 +131,7 @@ Besucherstatistiken nach verwendeten Browser.
     "language": "",
     "site": {
         "site_id": "",
+        "title": "",
         "link": "",
         "owner": {
             "user_id": "",
@@ -156,13 +143,14 @@ Besucherstatistiken nach verwendeten Browser.
 ```
 
 ###Operating System Statistics
-Besucherstatistiken nach verwendeten Betriebssytem.
+Besuchsstatistiken nach verwendeten Betriebssytem.
 ```json
 {
     "name": "",
     "version": "",
     "site": {
         "site_id": "",
+        "title": "",
         "link": "",
         "owner": {
             "user_id": "",
@@ -174,12 +162,13 @@ Besucherstatistiken nach verwendeten Betriebssytem.
 ```
 
 ###Country Statistics
-Besucherstatistiken einer Seite nach Länder.
+Besuchsstatistiken einer Seite nach Länder.
 ```json
 {
     "country": "",
     "site": {
         "site_id": "",
+        "title": "",
         "link": "",
         "owner": {
             "user_id": "",
@@ -194,22 +183,16 @@ Besucherstatistiken einer Seite nach Länder.
 Statistiken von welcher Seite die Besucher auf diese kamen.
 ```json
 {
-    "site": {
+    "site_id": "",
+    "referring_site": {
         "site_id": "",
+        "title": "",
         "link": "",
         "owner": {
             "user_id": "",
             "display_name": ""
         }
     },
-    "previous_site": {
-        "site_id": "",
-        "link": "",
-        "owner": {
-            "user_id": "",
-            "display_name": ""
-        }
-    },
-    "count": 0
+    "visits": 0
 }
 ```
