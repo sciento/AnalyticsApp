@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace AnalyticsApp.Models
+namespace AnalyticsLibrary.Models
 {
-    [DataContract]
+    [Serializable]
     public class Site
     {
         public Site(int id, string title, Uri link, User owner)
@@ -17,16 +18,16 @@ namespace AnalyticsApp.Models
             Owner = owner;
         }
 
-        [DataMember(Name = "site_id")]
+        [JsonProperty("site_id")]
         public int Id { get; private set; }
 
-        [DataMember(Name = "title")]
+        [JsonProperty("title")]
         public string Title { get; private set; }
 
-        [DataMember(Name = "link")]
+        [JsonProperty("link")]
         public Uri Link { get; private set; }
 
-        [DataMember(Name = "owner")]
+        [JsonProperty("owner")]
         public User Owner { get; private set; }
     }
 }

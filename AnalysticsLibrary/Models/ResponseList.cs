@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,13 @@ using System.Web;
 
 namespace AnalyticsLibrary.Models
 {
+    [Serializable]
     public class Response<T>
     {
-        public Error error { get; set; }
-
-        public List<T> items { get; set; }
+        [JsonProperty("error")]
+        public Error Error { get; set; }
+        [JsonProperty("items")]
+        public List<T> Items { get; set; }
 
 
     }

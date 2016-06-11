@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace AnalyticsApp.Models
+namespace AnalyticsLibrary.Models
 {
-    [DataContract]
+    [Serializable]
     public class CountryStatistic
     {
         public CountryStatistic(Site site, string country, int visits)
@@ -16,13 +17,16 @@ namespace AnalyticsApp.Models
             Visits = visits;
         }
 
-        [DataMember(Name = "site")]
+        [JsonProperty("site")]
+        //[DataMember(Name = "site")]
         public Site Site { get; private set; }
 
-        [DataMember(Name = "country")]
+        [JsonProperty("country")]
+        // [DataMember(Name = "country")]
         public string Country { get; private set; }
 
-        [DataMember(Name = "visits")]
+        [JsonProperty("visits")]
+        // [DataMember(Name = "visits")]
         public int Visits { get; private set; }
     }
 }

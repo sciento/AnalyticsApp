@@ -25,8 +25,7 @@ namespace AnalyticsApp.Controllers
         public Response<CountryStatistic> getByUserId(int userId, int siteId)
         {
             Response<CountryStatistic> res = new Response<CountryStatistic>();
-           // var items = new List<CountryStatistic>
-           res.items = new List<CountryStatistic>
+            res.Items = new List<CountryStatistic>
             {
                 new CountryStatistic(
                     new Site(1, "Example", new Uri("http://www.example.com"), new User(1, "Homer J.")),
@@ -50,7 +49,6 @@ namespace AnalyticsApp.Controllers
                     random.Next(100000))
             };
             return res;
-           // return Json(new { items = items });
         }
     }
 }
