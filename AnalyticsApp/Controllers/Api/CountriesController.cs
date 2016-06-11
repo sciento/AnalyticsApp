@@ -1,4 +1,5 @@
 ﻿using AnalyticsApp.Models;
+using AnalyticsLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,11 @@ namespace AnalyticsApp.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{userId}/{siteId}")]
-        public IHttpActionResult getByUserId(int userId, int siteId)
+        public Response<CountryStatistic> getByUserId(int userId, int siteId)
         {
-            var items = new List<CountryStatistic>
+            Response<CountryStatistic> res = new Response<CountryStatistic>();
+           // var items = new List<CountryStatistic>
+           res.items = new List<CountryStatistic>
             {
                 new CountryStatistic(
                     new Site(1, "Example", new Uri("http://www.example.com"), new User(1, "Homer J.")),
@@ -46,8 +49,8 @@ namespace AnalyticsApp.Controllers
                     "USA",
                     random.Next(100000))
             };
-
-            return Json(new { items = items });
+            return res;
+           // return Json(new { items = items });
         }
     }
 }

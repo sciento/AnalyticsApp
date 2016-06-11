@@ -183,11 +183,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CountriesController.cs" />
+    <Compile Include="Controllers\Api\CountriesController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\VisitsController.cs" />
+    <Compile Include="Controllers\Api\VisitsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -485,6 +485,12 @@
     <WCFMetadataStorage Include="Service References\Sites\" />
     <WCFMetadataStorage Include="Service References\Users\" />
     <WCFMetadataStorage Include="Service References\Visits\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnalysticsLibrary\AnalysticsLibrary.csproj">
+      <Project>{9BF609C6-D4B6-4D58-A73F-5496465FB626}</Project>
+      <Name>AnalysticsLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

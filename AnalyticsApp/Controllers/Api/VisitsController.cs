@@ -19,9 +19,9 @@ namespace AnalyticsApp.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{userId}/{siteId}")]
-        public IHttpActionResult getByUserId(int userId, int siteId)
+        public List<VisitStatistic> getByUserId(string userId, string siteId)
         {
-            var items = new List<VisitStatistic>
+            return  new List<VisitStatistic>
             {
                 new VisitStatistic(
                     new Site(1, "Example", new Uri("http://www.example.com"),
@@ -30,7 +30,7 @@ namespace AnalyticsApp.Controllers
                     1337)
             };
 
-            return Json(new { items = items/*, error = new { error_id = 1, message = "error message" }*/ });
+           // return Json(new { items = items/*, error = new { error_id = 1, message = "error message" }*/ });
         }
 
         /// <summary>
@@ -40,9 +40,9 @@ namespace AnalyticsApp.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{userId}")]
-        public IHttpActionResult getAllByUserId(int userId)
+        public List<VisitStatistic> getAllByUserId(string userId)
         {
-            var items = new List<VisitStatistic>
+            return new List<VisitStatistic>
             {
                 new VisitStatistic(
                     new Site(1, "Example", new Uri("http://www.example.com"),
@@ -66,7 +66,7 @@ namespace AnalyticsApp.Controllers
                     496)
             };
 
-            return Json(new { items = items });
+           // return Json(new { items = items });
         }
     }
 }
