@@ -8,6 +8,7 @@ using System.ServiceModel.Web;
 using System.ServiceModel.Activation;
 using System.ServiceModel;
 using System.Net;
+using AnalyticsLibrary.Models;
 
 namespace AnalyticsServer.Services
 {

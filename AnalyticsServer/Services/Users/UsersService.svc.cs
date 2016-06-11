@@ -8,6 +8,7 @@ using AnalyticsServer.Services;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Net;
+using AnalyticsLibrary.Models;
 
 namespace AnalyticsServer.Services
 {
@@ -16,7 +17,6 @@ namespace AnalyticsServer.Services
     {
         private AnalyticsEntities ae = new AnalyticsEntities();
 
-        [WebInvoke(Method = "GET", UriTemplate = "/", ResponseFormat = WebMessageFormat.Json)]
         public Response<Users> Get()
         {
             RequestUser rs = new RequestUser();
@@ -26,19 +26,16 @@ namespace AnalyticsServer.Services
             return response;
 
         }
-        [WebInvoke(Method = "DELETE", UriTemplate = "/{id}", ResponseFormat = WebMessageFormat.Json)]
         public Response<Users> Remove(string id)
         {
             throw new NotImplementedException();
         }
 
-        [WebInvoke(Method = "POST", UriTemplate = "/", ResponseFormat = WebMessageFormat.Json)]
         public Response<Users> Save()
         {
             throw new NotImplementedException();
         }
 
-        [WebInvoke(Method = "PUT", UriTemplate = "/{id}", ResponseFormat = WebMessageFormat.Json)]
         public Response<Users> Update(string id)
         {
             throw new NotImplementedException();

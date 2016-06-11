@@ -94,8 +94,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Error.cs" />
-    <Compile Include="Models\ResponseList.cs" />
     <Compile Include="Models\Sites.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -179,7 +177,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AnalysticsLibrary\AnalysticsLibrary.csproj">
+      <Project>{9bf609c6-d4b6-4d58-a73f-5496465fb626}</Project>
+      <Name>AnalysticsLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

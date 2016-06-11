@@ -5,6 +5,7 @@ using System.ServiceModel;
 using AnalyticsServer.Models;
 using System.Web;
 using AnalyticsServer.Services;
+using AnalyticsLibrary.Models;
 
 namespace AnalyticsServer.Interfaces
 {

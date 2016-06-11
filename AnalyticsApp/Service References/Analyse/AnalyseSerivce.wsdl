@@ -108,5 +108,102 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IAnalyseSerivce/GetVisitsByReferralResponse" message="tns:IAnalyseSerivce_GetVisitsByReferral_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:service name="AnalyseSerivce" />
+  <wsdl:binding name="BasicHttpBinding_IAnalyseSerivce" type="tns:IAnalyseSerivce">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMost">
+      <soap:operation soapAction="http://tempuri.org/IAnalyseSerivce/GetMost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMostByDate">
+      <soap:operation soapAction="http://tempuri.org/IAnalyseSerivce/GetMostByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMostByWeek">
+      <soap:operation soapAction="http://tempuri.org/IAnalyseSerivce/GetMostByWeek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsTimeAll">
+      <soap:operation soapAction="http://tempuri.org/IAnalyseSerivce/GetVisitsTimeAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsTimeByDay">
+      <soap:operation soapAction="http://tempuri.org/IAnalyseSerivce/GetVisitsTimeByDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsTimeByWeek">
+      <soap:operation soapAction="http://tempuri.org/IAnalyseSerivce/GetVisitsTimeByWeek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsByBrowser">
+      <soap:operation soapAction="http://tempuri.org/IAnalyseSerivce/GetVisitsByBrowser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsByOs">
+      <soap:operation soapAction="http://tempuri.org/IAnalyseSerivce/GetVisitsByOs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsByCountry">
+      <soap:operation soapAction="http://tempuri.org/IAnalyseSerivce/GetVisitsByCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitsByReferral">
+      <soap:operation soapAction="http://tempuri.org/IAnalyseSerivce/GetVisitsByReferral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AnalyseSerivce">
+    <wsdl:port name="BasicHttpBinding_IAnalyseSerivce" binding="tns:BasicHttpBinding_IAnalyseSerivce">
+      <soap:address location="http://localhost:37491/Services/Analyse/AnalyseService.svc" />
+    </wsdl:port>
+  </wsdl:service>
 </wsdl:definitions>

@@ -58,5 +58,57 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IVisitsService/GetPageVisitsByWeekResponse" message="tns:IVisitsService_GetPageVisitsByWeek_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:service name="VisitsService" />
+  <wsdl:binding name="BasicHttpBinding_IVisitsService" type="tns:IVisitsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveVisit">
+      <soap:operation soapAction="http://tempuri.org/IVisitsService/SaveVisit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVisits">
+      <soap:operation soapAction="http://tempuri.org/IVisitsService/GetAllVisits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPageVisits">
+      <soap:operation soapAction="http://tempuri.org/IVisitsService/GetPageVisits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPageVisitsByDate">
+      <soap:operation soapAction="http://tempuri.org/IVisitsService/GetPageVisitsByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPageVisitsByWeek">
+      <soap:operation soapAction="http://tempuri.org/IVisitsService/GetPageVisitsByWeek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VisitsService">
+    <wsdl:port name="BasicHttpBinding_IVisitsService" binding="tns:BasicHttpBinding_IVisitsService">
+      <soap:address location="http://localhost:37491/Services/Visitors/VisitsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
 </wsdl:definitions>
