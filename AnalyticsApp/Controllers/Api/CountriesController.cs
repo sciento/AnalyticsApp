@@ -22,9 +22,9 @@ namespace AnalyticsApp.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{userId}/{siteId}")]
-        public Response<CountryStatistic> getByUserId(string userId, string siteId)
+        public IHttpActionResult getByUserId(string userId, string siteId)
         {
-            return new Response<CountryStatistic>
+            return Json(new Response<CountryStatistic>
             {
                 Items = new List<CountryStatistic>
                 {
@@ -49,7 +49,7 @@ namespace AnalyticsApp.Controllers
                         "USA",
                         random.Next(100000))
                 }
-            };
+            });
         }
     }
 }
