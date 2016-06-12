@@ -18,15 +18,12 @@ namespace AnalyticsLibrary.Models
         }
 
         [JsonProperty("site")]
-        //[DataMember(Name = "site")]
         public Site Site { get; private set; }
 
         [JsonProperty("country")]
-        // [DataMember(Name = "country")]
         public string Country { get; private set; }
 
         [JsonProperty("visits")]
-        // [DataMember(Name = "visits")]
         public int Visits { get; private set; }
     }
 }

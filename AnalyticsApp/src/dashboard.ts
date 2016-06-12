@@ -1,6 +1,8 @@
 ﻿/// <reference path="./Common/_reference.ts" />
 
 namespace AnalyticsApp {
+    "use strict";
+
     import Observable = Rx.Observable;
     import Statistics = AnalyticsApp.StatisticsService;
 
@@ -11,11 +13,11 @@ namespace AnalyticsApp {
         const ctx: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
 
         // TODO this is just example data
-        Statistics.VisitStatistics.getAllByUserId(1).subscribe(x => console.log(x), e => console.log(e));
+        Statistics.VisitStatistics.getAllByUserId("1").subscribe(x => console.log(x), e => console.log(e));
 
-        Statistics.VisitStatistics.getByUserId(1, 2).subscribe(x => console.log(x), e => console.log(e));
+        Statistics.VisitStatistics.getByUserId("1", "2").subscribe(x => console.log(x), e => console.log(e));
 
-        Statistics.CountryStatistics.getByUserId(1, 2) 
+        Statistics.CountryStatistics.getByUserId("1", "2")
             .reduce((acc, data) => {
                 acc.labels.push(data.country);
                 acc.data.push(data.visits);

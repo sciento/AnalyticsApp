@@ -1,6 +1,7 @@
 /// <reference path="./Common/_reference.ts" />
 var AnalyticsApp;
 (function (AnalyticsApp) {
+    "use strict";
     var StatisticsService;
     (function (StatisticsService) {
         var Observable = Rx.Observable;
@@ -73,7 +74,7 @@ var AnalyticsApp;
         var BrowserStatistics = (function () {
             function BrowserStatistics() {
             }
-            BrowserStatistics.getByUserId = function (userId, config) {
+            BrowserStatistics.getByUserId = function (userId, siteId, config) {
                 if (config === void 0) { config = defaultConfig; }
                 // TODO
                 return Observable.empty();
@@ -84,7 +85,7 @@ var AnalyticsApp;
         var OperatingSystemStatistics = (function () {
             function OperatingSystemStatistics() {
             }
-            OperatingSystemStatistics.getByUserId = function (userId, config) {
+            OperatingSystemStatistics.getByUserId = function (userId, siteId, config) {
                 if (config === void 0) { config = defaultConfig; }
                 // TODO
                 return Observable.empty();

@@ -1,29 +1,32 @@
 ﻿/// <reference path="./Common/_reference.ts" />
 
 namespace AnalyticsApp {
+    "use strict";
+
     export namespace StatisticsService {
         import Observable = Rx.Observable;
 
         declare var fetch: any;
+
         export interface ApiResponse<T> {
             items: Array<T>;
             error?: Error;
         }
 
         export interface Error {
-            id: number;
-            name: string; 
+            id: string;
+            name: string;
             message: string;
         }
 
         export interface User {
-            id: number;
+            id: string;
             displayName: string;
             sites?: Array<string>;
         }
 
         export interface Site {
-            id: number;
+            id: string;
             title: string;
             link: string;
             owner: User;
@@ -70,7 +73,7 @@ namespace AnalyticsApp {
         const defaultConfig: StatisticConfig = { order: Order.ASCENDING, sortBy: "visits" };
 
         export class VisitStatistics {
-            static getByUserId(userId: number, siteId: number, config: StatisticConfig = defaultConfig): Observable<VisitStatistic> {
+            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig): Observable<VisitStatistic> {
 
                 return getContentOf(`/api/visits/${userId}/${siteId}`, o => ({
                     site: {
@@ -87,7 +90,7 @@ namespace AnalyticsApp {
                 }));
             }
 
-            static getAllByUserId(userId: number, config: StatisticConfig = defaultConfig): Observable<VisitStatistic> {
+            static getAllByUserId(userId: string, config: StatisticConfig = defaultConfig): Observable<VisitStatistic> {
 
                 return getContentOf(`/api/visits/${userId}`, o => ({
                     site: {
@@ -107,7 +110,7 @@ namespace AnalyticsApp {
 
         export class CountryStatistics {
 
-            static getByUserId(userId: number, siteId: number, config: StatisticConfig = defaultConfig): Observable<CountryStatistic> {
+            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig): Observable<CountryStatistic> {
 
                 return getContentOf(`/api/countries/${userId}/${siteId}`, o => ({
                     country: o.country,
@@ -127,7 +130,7 @@ namespace AnalyticsApp {
 
         export class BrowserStatistics {
 
-            static getByUserId(userId: number, config: StatisticConfig = defaultConfig): Observable<BrowserStatistic> {
+            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig): Observable<BrowserStatistic> {
 
                 // TODO
                 return Observable.empty<BrowserStatistic>();
@@ -136,7 +139,7 @@ namespace AnalyticsApp {
 
         export class OperatingSystemStatistics {
 
-            static getByUserId(userId: number, config: StatisticConfig = defaultConfig): Observable<OperatingSystemStatistic> {
+            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig): Observable<OperatingSystemStatistic> {
 
                 // TODO
                 return Observable.empty<OperatingSystemStatistic>();
