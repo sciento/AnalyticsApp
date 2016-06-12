@@ -472,14 +472,22 @@
     <TypeScriptCompile Include="Scripts\rx.time.es6.d.ts" />
     <TypeScriptCompile Include="Scripts\rx.virtualtime.d.ts" />
     <TypeScriptCompile Include="Scripts\rx.virtualtime.es6.d.ts" />
-    <TypeScriptCompile Include="src\Common\models.ts" />
-    <TypeScriptCompile Include="src\Common\notification.ts" />
-    <TypeScriptCompile Include="src\Common\request.ts" />
-    <TypeScriptCompile Include="src\Common\routes.ts" />
-    <TypeScriptCompile Include="src\Public\public.ts" />
-    <TypeScriptCompile Include="src\statisticsservice.ts" />
+    <TypeScriptCompile Include="src\common\notification.ts" />
+    <TypeScriptCompile Include="src\common\request.ts" />
+    <TypeScriptCompile Include="src\common\routes.ts" />
+    <TypeScriptCompile Include="src\models\apiresponse.ts" />
+    <TypeScriptCompile Include="src\models\authrequest.ts" />
+    <TypeScriptCompile Include="src\models\browserstatistic.ts" />
+    <TypeScriptCompile Include="src\models\countrystatistic.ts" />
+    <TypeScriptCompile Include="src\models\error.ts" />
+    <TypeScriptCompile Include="src\models\operatingsystemstatistic.ts" />
+    <TypeScriptCompile Include="src\models\site.ts" />
+    <TypeScriptCompile Include="src\models\user.ts" />
+    <TypeScriptCompile Include="src\models\visitstatistic.ts" />
+    <TypeScriptCompile Include="src\public\public.ts" />
+    <TypeScriptCompile Include="src\service\statisticsservice.ts" />
     <TypeScriptCompile Include="src\dashboard.ts" />
-    <TypeScriptCompile Include="src\Common\_reference.ts" />
+    <TypeScriptCompile Include="src\common\_reference.ts" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -11,21 +11,19 @@ namespace AnalyticsApp
             bundles.Add(new ScriptBundle("~/bundles/dashboard").Include(
                 "~/Scripts/Chart.js",
                 "~/Scripts/rx.all.js",
-                "~/Scripts/App/statisticsservice.js",
+                "~/Scripts/App/service/statisticsservice.js",
                 "~/Scripts/App/dashboard.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/rxjs").Include(
                 "~/Scripts/rx.all.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/common").Include(
-            "~/Scripts/App/Common/models.js",
-            "~/Scripts/App/Common/notification.js",
-            "~/Scripts/App/Common/request.js",
-            "~/Scripts/App/Common/Routes.js"
-            ));
+                "~/Scripts/App/common/notification.js",
+                "~/Scripts/App/common/request.js",
+                "~/Scripts/App/common/routes.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/public").Include(
-                "~/Scripts/App/Public/public.js"));
+                "~/Scripts/App/public/public.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));

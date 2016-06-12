@@ -1,4 +1,4 @@
-﻿/// <reference path="./Common/_reference.ts" />
+﻿/// <reference path="../common/_reference.ts" />
 
 namespace AnalyticsApp {
     "use strict";
@@ -6,59 +6,14 @@ namespace AnalyticsApp {
     export namespace StatisticsService {
         import Observable = Rx.Observable;
 
+        import ApiResponse = Model.ApiResponse;
+        import BrowserStatistic = Model.BrowserStatistic;
+        import CountryStatistic = Model.CountryStatistic;
+        import OperatingSystemStatistic = Model.OperatingSystemStatistic;
+        import VisitStatistic = Model.VisitStatistic;
+
         declare var fetch: any;
-
-        export interface ApiResponse<T> {
-            items: Array<T>;
-            error?: Error;
-        }
-
-        export interface Error {
-            id: string;
-            name: string;
-            message: string;
-        }
-
-        export interface User {
-            id: string;
-            displayName: string;
-            sites?: Array<string>;
-        }
-
-        export interface Site {
-            id: string;
-            title: string;
-            link: string;
-            owner: User;
-        }
-
-        export interface VisitStatistic {
-            site: Site;
-            averageVisitTime: number;
-            visits: number;
-        }
-
-        export interface CountryStatistic {
-            site: Site;
-            country: string;
-            visits: number;
-        }
-
-        export interface BrowserStatistic {
-            name: string;
-            version: string;
-            userAgent: string;
-            language: string;
-            site: Site;
-            visits: number;
-        }
-
-        export interface OperatingSystemStatistic {
-            name: string;
-            version: string;
-            site: Site;
-            visits: number;
-        }
+        declare var Headers: any;
 
         export enum Order {
             DESCENDING, ASCENDING
@@ -73,7 +28,8 @@ namespace AnalyticsApp {
         const defaultConfig: StatisticConfig = { order: Order.ASCENDING, sortBy: "visits" };
 
         export class VisitStatistics {
-            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig): Observable<VisitStatistic> {
+            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig)
+                : Observable<VisitStatistic> {
 
                 return getContentOf(`/api/visits/${userId}/${siteId}`, o => ({
                     site: {
@@ -90,7 +46,8 @@ namespace AnalyticsApp {
                 }));
             }
 
-            static getAllByUserId(userId: string, config: StatisticConfig = defaultConfig): Observable<VisitStatistic> {
+            static getAllByUserId(userId: string, config: StatisticConfig = defaultConfig)
+                : Observable<VisitStatistic> {
 
                 return getContentOf(`/api/visits/${userId}`, o => ({
                     site: {
@@ -110,7 +67,8 @@ namespace AnalyticsApp {
 
         export class CountryStatistics {
 
-            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig): Observable<CountryStatistic> {
+            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig)
+                : Observable<CountryStatistic> {
 
                 return getContentOf(`/api/countries/${userId}/${siteId}`, o => ({
                     country: o.country,
@@ -130,7 +88,8 @@ namespace AnalyticsApp {
 
         export class BrowserStatistics {
 
-            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig): Observable<BrowserStatistic> {
+            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig)
+                : Observable<BrowserStatistic> {
 
                 // TODO
                 return Observable.empty<BrowserStatistic>();
@@ -139,7 +98,8 @@ namespace AnalyticsApp {
 
         export class OperatingSystemStatistics {
 
-            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig): Observable<OperatingSystemStatistic> {
+            static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig)
+                : Observable<OperatingSystemStatistic> {
 
                 // TODO
                 return Observable.empty<OperatingSystemStatistic>();
@@ -147,9 +107,17 @@ namespace AnalyticsApp {
         }
 
         function getContentOf<T>(uri: string, transformer: (o: any) => T): Observable<T> {
+            const requestHeaders = new Headers();
+            requestHeaders.set("Content-Type", "application/json");
+            requestHeaders.set("Accept-Charset", "utf-8");
+
             return Observable.create<ApiResponse<any>>(subscriber => {
-                fetch(uri)
-                    .then((response: any) => response.json())
+                fetch(uri, {
+                    method: "GET",
+                    headers: requestHeaders,
+                    mode: "cors",
+                    cache: "default"
+                }).then((response: any) => response.json())
                     .then((jsonResponse: ApiResponse<any>) => {
                         if (jsonResponse.error) {
                             subscriber.onError(new Error(jsonResponse.error.message));
