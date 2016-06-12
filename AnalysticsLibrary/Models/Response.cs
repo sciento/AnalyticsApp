@@ -13,10 +13,8 @@ namespace AnalyticsLibrary.Models
     {
         [JsonProperty("error")]
         public Error Error { get; set; }
+
         [JsonProperty("items")]
-        public List<T> Items { get; set; }
-
-
+        public IEnumerable<T> Items { get; set; }
     }
-
 }

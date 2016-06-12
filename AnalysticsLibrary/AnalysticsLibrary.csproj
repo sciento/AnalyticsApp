@@ -46,7 +46,7 @@
     <Compile Include="Models\CountryStatistic.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Requests.cs" />
-    <Compile Include="Models\ResponseList.cs" />
+    <Compile Include="Models\Response.cs" />
     <Compile Include="Models\Site.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Visits.cs" />

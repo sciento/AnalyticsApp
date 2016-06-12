@@ -10,7 +10,7 @@ namespace AnalyticsLibrary.Models
     [Serializable]
     public class Site
     {
-        public Site(int id, string title, Uri link, User owner)
+        public Site(Guid id, string title, Uri link, User owner)
         {
             Id = id;
             Title = title;
@@ -19,7 +19,7 @@ namespace AnalyticsLibrary.Models
         }
 
         [JsonProperty("site_id")]
-        public int Id { get; private set; }
+        public Guid Id { get; private set; }
 
         [JsonProperty("title")]
         public string Title { get; private set; }

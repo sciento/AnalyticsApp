@@ -1,15 +1,16 @@
 /// <reference path="./Common/_reference.ts" />
 var AnalyticsApp;
 (function (AnalyticsApp) {
+    "use strict";
     var Observable = Rx.Observable;
     var Statistics = AnalyticsApp.StatisticsService;
     Observable.fromEvent(document, "DOMContentLoaded").subscribe(function (evt) {
         var canvas = document.getElementById("exampleChart");
         var ctx = canvas.getContext("2d");
         // TODO this is just example data
-        Statistics.VisitStatistics.getAllByUserId(1).subscribe(function (x) { return console.log(x); }, function (e) { return console.log(e); });
-        Statistics.VisitStatistics.getByUserId(1, 2).subscribe(function (x) { return console.log(x); }, function (e) { return console.log(e); });
-        Statistics.CountryStatistics.getByUserId(1, 2)
+        Statistics.VisitStatistics.getAllByUserId("1").subscribe(function (x) { return console.log(x); }, function (e) { return console.log(e); });
+        Statistics.VisitStatistics.getByUserId("1", "2").subscribe(function (x) { return console.log(x); }, function (e) { return console.log(e); });
+        Statistics.CountryStatistics.getByUserId("1", "2")
             .reduce(function (acc, data) {
             acc.labels.push(data.country);
             acc.data.push(data.visits);

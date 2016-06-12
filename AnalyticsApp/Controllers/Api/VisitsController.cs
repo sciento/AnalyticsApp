@@ -20,18 +20,21 @@ namespace AnalyticsApp.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{userId}/{siteId}")]
-        public List<VisitStatistic> getByUserId(string userId, string siteId)
+        public Response<VisitStatistic> getByUserId(string userId, string siteId)
         {
-            return  new List<VisitStatistic>
+            return new Response<VisitStatistic>
             {
-                new VisitStatistic(
-                    new Site(1, "Example", new Uri("http://www.example.com"),
-                    new User(1, "Homer J.")),
-                    230,
-                    1337)
+                Items = new List<VisitStatistic>
+                {
+                    new VisitStatistic(
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"),
+                        new User(Guid.NewGuid(), "Homer J.")),
+                        230,
+                        1337)
+                }
             };
 
-           // return Json(new { items = items/*, error = new { error_id = 1, message = "error message" }*/ });
+            // return Json(new { items = items/*, error = new { error_id = 1, message = "error message" }*/ });
         }
 
         /// <summary>
@@ -41,33 +44,36 @@ namespace AnalyticsApp.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{userId}")]
-        public List<VisitStatistic> getAllByUserId(string userId)
+        public Response<VisitStatistic> getAllByUserId(string userId)
         {
-            return new List<VisitStatistic>
+            return new Response<VisitStatistic>
             {
-                new VisitStatistic(
-                    new Site(1, "Example", new Uri("http://www.example.com"),
-                    new User(1, "Homer J.")),
-                    230,
-                    1337),
-                new VisitStatistic(
-                    new Site(2, "Test", new Uri("http://www.test.com"),
-                    new User(1, "Homer J.")),
-                    123,
-                    1028),
-                new VisitStatistic(
-                    new Site(3, "Example 2", new Uri("http://www.example2.com"),
-                    new User(1, "Homer J.")),
-                    759,
-                    12480),
-                new VisitStatistic(
-                    new Site(4, "Lorem Ipsum", new Uri("http://www.loremipsum.com"),
-                    new User(1, "Homer J.")),
-                    197,
-                    496)
+                Items = new List<VisitStatistic>
+                {
+                    new VisitStatistic(
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"),
+                        new User(Guid.NewGuid(), "Homer J.")),
+                        230,
+                        1337),
+                    new VisitStatistic(
+                        new Site(Guid.NewGuid(), "Test", new Uri("http://www.test.com"),
+                        new User(Guid.NewGuid(), "Homer J.")),
+                        123,
+                        1028),
+                    new VisitStatistic(
+                        new Site(Guid.NewGuid(), "Example 2", new Uri("http://www.example2.com"),
+                        new User(Guid.NewGuid(), "Homer J.")),
+                        759,
+                        12480),
+                    new VisitStatistic(
+                        new Site(Guid.NewGuid(), "Lorem Ipsum", new Uri("http://www.loremipsum.com"),
+                        new User(Guid.NewGuid(), "Homer J.")),
+                        197,
+                        496)
+                }
             };
 
-           // return Json(new { items = items });
+            // return Json(new { items = items });
         }
     }
 }

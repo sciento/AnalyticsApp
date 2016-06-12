@@ -22,33 +22,34 @@ namespace AnalyticsApp.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{userId}/{siteId}")]
-        public Response<CountryStatistic> getByUserId(int userId, int siteId)
+        public Response<CountryStatistic> getByUserId(string userId, string siteId)
         {
-            Response<CountryStatistic> res = new Response<CountryStatistic>();
-            res.Items = new List<CountryStatistic>
+            return new Response<CountryStatistic>
             {
-                new CountryStatistic(
-                    new Site(1, "Example", new Uri("http://www.example.com"), new User(1, "Homer J.")),
-                    "Australia",
-                    random.Next(100000)),
-                new CountryStatistic(
-                    new Site(1, "Example", new Uri("http://www.example.com"), new User(1, "Homer J.")),
-                    "Austria",
-                    random.Next(100000)),
-                new CountryStatistic(
-                    new Site(1, "Example", new Uri("http://www.example.com"), new User(1, "Homer J.")),
-                    "Germany",
-                    random.Next(100000)),
-                new CountryStatistic(
-                    new Site(1, "Example", new Uri("http://www.example.com"), new User(1, "Homer J.")),
-                    "Italy",
-                    random.Next(100000)),
-                new CountryStatistic(
-                    new Site(1, "Example", new Uri("http://www.example.com"), new User(1, "Homer J.")),
-                    "USA",
-                    random.Next(100000))
+                Items = new List<CountryStatistic>
+                {
+                    new CountryStatistic(
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new User(Guid.NewGuid(), "Homer J.")),
+                        "Australia",
+                        random.Next(100000)),
+                    new CountryStatistic(
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new User(Guid.NewGuid(), "Homer J.")),
+                        "Austria",
+                        random.Next(100000)),
+                    new CountryStatistic(
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new User(Guid.NewGuid(), "Homer J.")),
+                        "Germany",
+                        random.Next(100000)),
+                    new CountryStatistic(
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new User(Guid.NewGuid(), "Homer J.")),
+                        "Italy",
+                        random.Next(100000)),
+                    new CountryStatistic(
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new User(Guid.NewGuid(), "Homer J.")),
+                        "USA",
+                        random.Next(100000))
+                }
             };
-            return res;
         }
     }
 }
