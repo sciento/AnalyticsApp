@@ -5,6 +5,7 @@ var AnalyticsApp;
         function Routes() {
         }
         Routes.Login = "./api/auth";
+        Routes.Registration = "./api/users";
         return Routes;
     }());
     AnalyticsApp.Routes = Routes;

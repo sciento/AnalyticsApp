@@ -14,22 +14,20 @@ namespace AnalyticsApp.Controllers
     [RoutePrefix("api/auth")]
     public class AuthController : ApiController
     {
-        private Random random = new Random();
 
         /// <summary>
-        /// TODO
+        /// Check Login Action
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="siteId"></param>
         /// <returns></returns>
         [HttpPost]
         [Route("")]
-        public string AuthRequest(AuthRequest auth)
+        public bool AuthRequest(AuthRequest authRequest)
         {
-
-            Debug.WriteLine(auth);
+            Response<AuthRequest> authResponse = new Response<AuthRequest>();
+            Debug.WriteLine(authRequest.Username);
+            Debug.WriteLine(authRequest.Secret);
             
-            return "blub";
+            return false;
         }
     }
 }
