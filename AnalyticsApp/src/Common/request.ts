@@ -9,8 +9,8 @@ namespace AnalyticsApp {
                 type: method,
                 url: url,
                 beforeSend: function (request) {
-                    if (AnalyticsApp.Request.checkAuthorization())
-                        request.setRequestHeader("Authorization", "" +$("#api-key").val());
+                   // if (AnalyticsApp.Request.checkAuthorization())
+                    //    request.setRequestHeader("Authorization", "" +$("#api-key").val());
                 },
                 data: JSON.stringify(data),
                 dataType: 'json',
@@ -37,6 +37,7 @@ namespace AnalyticsApp {
         private static checkAuthorization(): boolean {
             if ($("#api-key").length > 0)
                 return false;
+
             if ($("#api-key").val().length > 0)
                 return false;
 

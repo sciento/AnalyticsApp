@@ -1,17 +1,31 @@
 ﻿using AnalyticsServer.Interfaces;
 using System.ServiceModel.Activation;
 using AnalysticsLibrary.Models;
+using AnalyticsServer.Models;
+using System.Linq;
+using System.Diagnostics;
+using System.Web;
 
 namespace AnalyticsServer.Services
 {
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class AuthService : IAuthService
     {
-        public void Auth(AuthRequest auth)
-        {
-           // WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.OK;
+        private AnalyticsEntities ae = new AnalyticsEntities();
 
-            Authorize authorize = new Authorize(auth.Username, auth.Secret);
+        public bool Auth(AuthRequest auth)
+        {
+            Debug.WriteLine(HttpContext.Current.Request.Headers.ToString());
+
+
+            Users checkUser = ae.Users
+                .Where(u => ((u.Username == auth.Username) || (u.Email == auth.Username))  && u.Password == auth.Secret)
+                .SingleOrDefault();
+
+            if (checkUser != null)
+                return true;
+
+            return false;
         }
 
 

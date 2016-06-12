@@ -16,13 +16,14 @@ namespace AnalyticsServer.Services
         public Guid Id { get; set; }
         public RequestUser()
         {
-            HttpCookie AuthCookie = HttpContext.Current.Request.Cookies["AuthCookie"];
-            if (AuthCookie != null)
+            string AuthHeader = HttpContext.Current.Request.Headers["authorization"];
+            if (AuthHeader != null)
             {
-                // Get Cookie Data
-                string[] pairs = AuthCookie.Value.Split('&');
-                string username = pairs[0].Split('=')[1];
-                string hash = Crypt.Decrypt(pairs[1].Split('=')[1]);
+                // Get Header Data
+                AuthHeader = Crypt.Decrypt(AuthHeader);
+                string[] pairs = AuthHeader.Split(':');
+                string username = pairs[0];
+                string hash = pairs[1];
 
                 Users requestUser = ae.Users.First(u => u.Username == username && u.Password == hash);
                 Id = requestUser.Id;

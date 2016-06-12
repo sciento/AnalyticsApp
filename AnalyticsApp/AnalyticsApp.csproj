@@ -64,6 +64,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -185,6 +186,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\AuthController.cs" />
     <Compile Include="Controllers\Api\CountriesController.cs" />
+    <Compile Include="Controllers\Api\UsersController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -201,7 +203,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\Auth\Reference.cs">
+    <Compile Include="Service References\AuthReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -216,7 +218,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\Users\Reference.cs">
+    <Compile Include="Service References\UsersReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -299,13 +301,6 @@
     <None Include="Service References\Analyse\AnalyseService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Auth\AuthService.disco" />
-    <None Include="Service References\Auth\configuration91.svcinfo" />
-    <None Include="Service References\Auth\configuration.svcinfo" />
-    <None Include="Service References\Auth\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Service References\Analyse\AnalyseService.disco" />
     <None Include="Service References\Analyse\configuration91.svcinfo" />
     <None Include="Service References\Analyse\configuration.svcinfo" />
@@ -313,10 +308,27 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\AuthReference\AuthService.wsdl" />
+    <None Include="Service References\AuthReference\AuthService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthReference\AuthService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthReference\AuthService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\Embed\EmbedService.disco" />
     <None Include="Service References\Embed\configuration91.svcinfo" />
     <None Include="Service References\Embed\configuration.svcinfo" />
     <None Include="Service References\Embed\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AuthReference\AuthService.disco" />
+    <None Include="Service References\AuthReference\configuration91.svcinfo" />
+    <None Include="Service References\AuthReference\configuration.svcinfo" />
+    <None Include="Service References\AuthReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -333,20 +345,33 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Service References\Users\AnalyticsApp.Users.ResponseOfUsers5pAuinzC.datasource">
+    <Content Include="Service References\UsersReference\AnalyticsApp.UsersReference.Users.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\Users\UsersService.disco" />
-    <None Include="Service References\Users\configuration91.svcinfo" />
-    <None Include="Service References\Users\configuration.svcinfo" />
-    <None Include="Service References\Users\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
+    <None Include="Service References\UsersReference\UsersService.wsdl" />
+    <None Include="Service References\UsersReference\UsersService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsersReference\UsersService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsersReference\UsersService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsersReference\UsersService3.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Visits\VisitsService.disco" />
     <None Include="Service References\Visits\configuration91.svcinfo" />
     <None Include="Service References\Visits\configuration.svcinfo" />
     <None Include="Service References\Visits\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\UsersReference\UsersService.disco" />
+    <None Include="Service References\UsersReference\configuration91.svcinfo" />
+    <None Include="Service References\UsersReference\configuration.svcinfo" />
+    <None Include="Service References\UsersReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -385,16 +410,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="tsconfig.json" />
-    <None Include="Service References\Auth\AuthService.wsdl" />
-    <None Include="Service References\Auth\AuthService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Auth\AuthService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Auth\AuthService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\Embed\EmbedService.wsdl" />
     <None Include="Service References\Embed\EmbedService.xsd">
       <SubType>Designer</SubType>
@@ -410,16 +425,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Sites\SitesService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Users\UsersService.wsdl" />
-    <None Include="Service References\Users\UsersService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Users\UsersService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Users\UsersService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Visits\VisitsService.wsdl" />
@@ -481,10 +486,10 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Analyse\" />
-    <WCFMetadataStorage Include="Service References\Auth\" />
+    <WCFMetadataStorage Include="Service References\AuthReference\" />
     <WCFMetadataStorage Include="Service References\Embed\" />
     <WCFMetadataStorage Include="Service References\Sites\" />
-    <WCFMetadataStorage Include="Service References\Users\" />
+    <WCFMetadataStorage Include="Service References\UsersReference\" />
     <WCFMetadataStorage Include="Service References\Visits\" />
   </ItemGroup>
   <ItemGroup>

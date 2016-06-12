@@ -1,5 +1,6 @@
 ﻿using System.ServiceModel;
 using AnalysticsLibrary.Models;
+using AnalyticsServer.Services;
 
 namespace AnalyticsServer.Interfaces
 {
@@ -7,7 +8,7 @@ namespace AnalyticsServer.Interfaces
     public interface IAuthService
     {
         [OperationContract]
-        void Auth(AuthRequest auth);
+        bool Auth(AuthRequest auth);
 
 
 

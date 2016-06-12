@@ -21,8 +21,7 @@ namespace AnalyticsServer.Services
         {
             RequestUser rs = new RequestUser();
             Response<Users> response = new Response<Users>();
-            response.Items = new List<Users>();
-            response.Items.Add(ae.Users.First(u => u.Id == rs.Id));
+            response.Items = ae.Users.Where(u => u.Id == rs.Id);
             return response;
 
         }

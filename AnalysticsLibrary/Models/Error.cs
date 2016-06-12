@@ -13,6 +13,8 @@ namespace AnalyticsLibrary.Models
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("message")]
-        public string Message { get; set; }  
+        public string Message { get; set; }
+
+
     }
 }

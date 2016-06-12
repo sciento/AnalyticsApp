@@ -9,8 +9,8 @@ var AnalyticsApp;
                 type: method,
                 url: url,
                 beforeSend: function (request) {
-                    if (AnalyticsApp.Request.checkAuthorization())
-                        request.setRequestHeader("Authorization", "" + $("#api-key").val());
+                    // if (AnalyticsApp.Request.checkAuthorization())
+                    //    request.setRequestHeader("Authorization", "" +$("#api-key").val());
                 },
                 data: JSON.stringify(data),
                 dataType: 'json',

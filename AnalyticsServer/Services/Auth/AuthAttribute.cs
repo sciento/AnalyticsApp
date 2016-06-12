@@ -1,6 +1,7 @@
 ﻿using AnalyticsLibrary.Helpers;
 using AnalyticsServer.Models;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Security.Principal;
@@ -23,8 +24,7 @@ namespace AnalyticsServer.Services
             dispatchOperation.ParameterInspectors.Add(this);
         }
 
-        public void AfterCall(string operationName, object[] outputs,
-                              object returnValue, object correlationState)
+        public void AfterCall(string operationName, object[] outputs, object returnValue, object correlationState)
         {
         }
 
@@ -36,34 +36,18 @@ namespace AnalyticsServer.Services
 
         public object BeforeCall(string operationName, object[] inputs)
         {
-            HttpCookie AuthCookie = HttpContext.Current.Request.Cookies["AuthCookie"];
+            string AuthHeader = HttpContext.Current.Request.Headers["authorization"];
+            Debug.WriteLine(AuthHeader);
 
-            if (AuthCookie != null)
+            if (AuthHeader != null)
             {
-                int j;
-                AuthCookie.Value = Crypt.Decrypt(AuthCookie.Value);
-                Random rnd = new Random();
-                string[] pairs = AuthCookie.Value.Split('&');
-                string username = pairs[0].Split('=')[1];
-                string passwordHash = Crypt.Decrypt(pairs[1].Split('=')[1]);
+                AuthHeader = Crypt.Decrypt(AuthHeader);
+                // Username:Secret
+                string[] data = AuthHeader.Split(':');
 
-                if (Int32.TryParse(pairs[2].Split('=')[1], out j))
+                if ((data[0] != null) && (data[1] != null) && ValidateLogin(data[0], data[1]))
                 {
-                    HttpCookie authCookie = new HttpCookie("AuthCookie");
-                    authCookie["user"] = username;
-                    authCookie["token"] = Crypt.Encrypt(passwordHash);
-                    authCookie["nonce"] = rnd.Next(1000, 10000).ToString();
-                    authCookie.Expires = DateTime.Now.AddDays(1d);
-                    authCookie.Value = Crypt.Encrypt(authCookie.Value);
-                    HttpContext.Current.Response.Cookies.Add(authCookie);
-
-
-                }
-                    
-
-                if ((username != null) && (passwordHash != null) && ValidateLogin(username, passwordHash))
-                {
-                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(username), new string[0]);
+                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(data[0]), new string[0]);
                     return null;
                 }
             }
