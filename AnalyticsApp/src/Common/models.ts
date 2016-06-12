@@ -10,4 +10,4 @@ namespace AnalyticsApp {
             error?: Error;
         }
       
-}
+} 

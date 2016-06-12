@@ -8,6 +8,10 @@ var AnalyticsApp;
             $.ajax({
                 type: method,
                 url: url,
+                beforeSend: function (request) {
+                    if (AnalyticsApp.Request.checkAuthorization())
+                        request.setRequestHeader("Authorization", "" + $("#api-key").val());
+                },
                 data: JSON.stringify(data),
                 dataType: 'json',
                 contentType: "application/json; charset=utf-8",
@@ -24,6 +28,13 @@ var AnalyticsApp;
         };
         Request.Post = function (url, data, callback) {
             this.Handler("POST", url, data, callback);
+        };
+        Request.checkAuthorization = function () {
+            if ($("#api-key").length > 0)
+                return false;
+            if ($("#api-key").val().length > 0)
+                return false;
+            return true;
         };
         return Request;
     }());

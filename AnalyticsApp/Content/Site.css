@@ -22,3 +22,17 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#notification-frame{
+    position: fixed;
+    top: 3.5em;
+    right: 1em;
+    width: 20%;
+    z-index: 9999;
+}
+
+#notification-frame .notification{
+    margin: 1em auto;
+    z-index: 9999;
+    display: none;
+}

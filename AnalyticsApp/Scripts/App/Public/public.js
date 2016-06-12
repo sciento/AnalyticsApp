@@ -17,11 +17,11 @@ var AnalyticsApp;
             };
             Login.prototype.Validate = function () {
                 if (this.authLogin.username.length < 3) {
-                    console.error("Please entry a username!");
+                    AnalyticsApp.Notification.Warn("Please entry a username!");
                     return false;
                 }
                 if (this.authLogin.secret.length < 3) {
-                    console.error("Please entry a password!");
+                    AnalyticsApp.Notification.Success("Please entry a password!");
                     return false;
                 }
                 return true;

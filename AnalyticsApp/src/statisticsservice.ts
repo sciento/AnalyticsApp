@@ -12,7 +12,7 @@ namespace AnalyticsApp {
 
         export interface Error {
             id: number;
-            name: string;
+            name: string; 
             message: string;
         }
 
