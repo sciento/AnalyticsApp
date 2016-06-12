@@ -2,6 +2,7 @@
 using AnalysticsLibrary.Helpers;
 using AnalysticsLibrary.Models;
 using AnalyticsApp.Models;
+using AnalyticsApp.UsersReference;
 using AnalyticsLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -33,15 +34,20 @@ namespace AnalyticsApp.Controllers
         [Route("")]
         public IHttpActionResult AuthRequest(AuthRequest authRequest)
         {
-            Response<AuthRequest> authResponse = new Response<AuthRequest>();
+            Response<Users> authResponse = new Response<Users>();
             authResponse.Error = new Error();
             using (new OperationContextScope(authService.InnerChannel))
             {
                 try
                 {
                     RequestHeader.AddAuthorizationHeader();
-                    if (authService.Auth(authRequest))
+                    if (authService.Auth(authRequest)) {
                         SetAuthCookie(authRequest);
+                        return Json(authResponse);
+                    } else
+                    {
+                        authResponse.Error.SetError("999 - LoginFail");
+                    }
                 }
                 catch (CommunicationException e)
                 {

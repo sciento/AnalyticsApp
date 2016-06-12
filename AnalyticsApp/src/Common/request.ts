@@ -8,10 +8,6 @@ namespace AnalyticsApp {
             $.ajax({
                 type: method,
                 url: url,
-                beforeSend: function (request) {
-                   // if (AnalyticsApp.Request.checkAuthorization())
-                    //    request.setRequestHeader("Authorization", "" +$("#api-key").val());
-                },
                 data: JSON.stringify(data),
                 dataType: 'json',
                 contentType: "application/json; charset=utf-8",
@@ -32,16 +28,6 @@ namespace AnalyticsApp {
 
         public static Post(url: string, data: any, callback: any) {
             this.Handler("POST", url, data, callback);
-        }
-
-        private static checkAuthorization(): boolean {
-            if ($("#api-key").length > 0)
-                return false;
-
-            if ($("#api-key").val().length > 0)
-                return false;
-
-            return true;
         }
          
     }

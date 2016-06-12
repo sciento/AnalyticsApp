@@ -39,6 +39,12 @@ namespace AnalysticsLibrary.Helpers
                 err.Message = "The server encountered an unexpected condition which prevented it from fulfilling the request.";
             }
 
+            else if (errorMessage.Contains("999"))
+            {
+                err.Name = "999 - Wrong Login";
+                err.Message = "Wrong Login, try again.";
+            }
+
             return err;
         } 
     }

@@ -3,9 +3,12 @@
 namespace AnalyticsApp {
     export namespace Public {
 
+
         export class Login {
+
             private authLogin: Model.AuthRequest;
             private loginUri: string;
+            private apiResponse: Model.ApiResponse<Model.User>;
 
             constructor() {
                 this.AddEvents();
@@ -15,10 +18,14 @@ namespace AnalyticsApp {
                $("#login").unbind("click").click(this.Login)
             }
 
-           private Request(data : any, status: any, message: any) {
-               console.log(data);
-               console.log(status);
-               console.log(message);
+           private Request(data: any, status: any, message: any) {
+               this.apiResponse = data;
+               if (this.apiResponse.error.message != null) {
+                   Notification.Error(this.apiResponse.error.message);
+               } else {
+                   location.reload();
+               }
+
            }
 
            private Validate() : boolean  {
@@ -27,7 +34,7 @@ namespace AnalyticsApp {
                    return false;
                }
                if (this.authLogin.secret.length < 3) {
-                   AnalyticsApp.Notification.Success("Please enter a password!");
+                   AnalyticsApp.Notification.Warn("Please enter a password!");
                    return false;
                }
                return true;
