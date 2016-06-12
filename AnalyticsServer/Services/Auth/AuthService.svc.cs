@@ -11,7 +11,7 @@ namespace AnalyticsServer.Services
         {
            // WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.OK;
 
-            Authorize authorize = new Authorize(auth.username, auth.password);
+            Authorize authorize = new Authorize(auth.Username, auth.Secret);
         }
 
 

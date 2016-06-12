@@ -1,4 +1,6 @@
-﻿namespace AnalyticsApp {
+﻿/// <reference path="./Common/_reference.ts" />
+
+namespace AnalyticsApp {
     import Observable = Rx.Observable;
     import Statistics = AnalyticsApp.StatisticsService;
 

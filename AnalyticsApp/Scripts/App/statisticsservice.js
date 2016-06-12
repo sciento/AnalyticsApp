@@ -1,3 +1,4 @@
+/// <reference path="./Common/_reference.ts" />
 var AnalyticsApp;
 (function (AnalyticsApp) {
     var StatisticsService;

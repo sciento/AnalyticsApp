@@ -1,15 +1,16 @@
-﻿namespace AnalyticsApp {
+﻿/// <reference path="./Common/_reference.ts" />
+
+namespace AnalyticsApp {
     export namespace StatisticsService {
         import Observable = Rx.Observable;
 
         declare var fetch: any;
-
-        interface ApiResponse<T> {
+        export interface ApiResponse<T> {
             items: Array<T>;
             error?: Error;
         }
 
-        interface Error {
+        export interface Error {
             id: number;
             name: string;
             message: string;
@@ -66,7 +67,6 @@
             fromDate?: Date;
             toDate?: Date;
         }
-
         const defaultConfig: StatisticConfig = { order: Order.ASCENDING, sortBy: "visits" };
 
         export class VisitStatistics {

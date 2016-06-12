@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace AnalysticsLibrary.Models
 {
-
+    [Serializable]
     public class AuthRequest
     {
-        public string username { get; set; }
-        public string password { get; set; }
+        [JsonProperty("username")]
+        public string Username { get; set; }
+        [JsonProperty("secret")]
+        public string Secret { get; set; }
     }
 
 }

@@ -11,6 +11,10 @@
   "files": [
     "./src/dashboard.ts",
     "./src/statisticsservice.ts",
+    "./src/Public/public.ts",
+    "./src/Common/request.ts",
+    "./src/Common/routes.ts",
+    "./src/Common/models.ts",
     "./Scripts/rx.all.d.ts"
   ]
 }
