@@ -12,6 +12,7 @@ namespace AnalysticsLibrary.Models
     {
         [JsonProperty("username")]
         public string Username { get; set; }
+
         [JsonProperty("secret")]
         public string Secret { get; set; }
     }

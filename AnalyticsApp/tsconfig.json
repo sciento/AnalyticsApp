@@ -9,13 +9,21 @@
     "target": "es5"
   },
   "files": [
+    "./src/common/notification.ts",
+    "./src/common/request.ts",
+    "./src/common/routes.ts",
     "./src/dashboard.ts",
-    "./src/statisticsservice.ts",
-    "./src/Public/public.ts",
-    "./src/Common/request.ts",
-    "./src/Common/notification.ts",
-    "./src/Common/routes.ts",
-    "./src/Common/models.ts",
+    "./src/models/apiresponse.ts",
+    "./src/models/authrequest.ts",
+    "./src/models/browserstatistic.ts",
+    "./src/models/countrystatistic.ts",
+    "./src/models/error.ts",
+    "./src/models/operatingsystemstatistic.ts",
+    "./src/models/site.ts",
+    "./src/models/user.ts",
+    "./src/models/visitstatistic.ts",
+    "./src/public/public.ts",
+    "./src/service/statisticsservice.ts",
     "./Scripts/rx.all.d.ts"
   ]
 }

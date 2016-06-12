@@ -1,10 +1,10 @@
-﻿/// <reference path="../Common/_reference.ts" />
+﻿/// <reference path="../common/_reference.ts" />
 
 namespace AnalyticsApp {
     export namespace Public {
 
         export class Login {
-            private authLogin: AuthRequest;
+            private authLogin: Model.AuthRequest;
             private loginUri: string;
 
             constructor() {
@@ -23,11 +23,11 @@ namespace AnalyticsApp {
 
            private Validate() : boolean  {
                if (this.authLogin.username.length < 3) {
-                   AnalyticsApp.Notification.Warn("Please entry a username!");
+                   AnalyticsApp.Notification.Warn("Please enter a username!");
                    return false;
                }
                if (this.authLogin.secret.length < 3) {
-                   AnalyticsApp.Notification.Success("Please entry a password!");
+                   AnalyticsApp.Notification.Success("Please enter a password!");
                    return false;
                }
                return true;

@@ -1,11 +1,12 @@
 ﻿/// <reference path="./_reference.ts" />
 
 namespace AnalyticsApp {
+    "use strict";
 
-    export class Notification { 
+    export class Notification {
         private static time: number = 5000;
         private static Handler(type: string, message: string) {
-            var id = this.GetRandomId()
+            var id = this.GetRandomId();
             var newNotification = document.createElement("div");
             var newNotificationButton = document.createElement("button");
             var notification = document.createTextNode(message);
@@ -34,16 +35,17 @@ namespace AnalyticsApp {
             }, this.time);
         }
 
-        private static GetRandomId(): string{
+        private static GetRandomId(): string {
             var id = Math.floor((Math.random() * 1000) + 1);
-            if ($("notification").length < 1)
-                return "notification" + id; 
+            if ($("notification").length < 1) {
+                return "notification" + id;
+            }
 
-            return this.GetRandomId();            
+            return this.GetRandomId();
         }
-         
+
         public static Success(message: string) {
-            console.log("[Success] " + message); 
+            console.log("[Success] " + message);
             this.Handler("success", message);
         }
 
@@ -61,10 +63,5 @@ namespace AnalyticsApp {
             console.warn("[Warn] " + message);
             this.Handler("warning", message);
         }
-
-       
-
-
     }
-
 }

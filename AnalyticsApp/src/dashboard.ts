@@ -1,4 +1,4 @@
-﻿/// <reference path="./Common/_reference.ts" />
+﻿/// <reference path="./common/_reference.ts" />
 
 namespace AnalyticsApp {
     "use strict";

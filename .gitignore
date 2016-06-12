@@ -11,6 +11,9 @@ Web.config
 *.userosscache
 *.sln.docstates
 
+# TypeScript output directory of .js files
+/AnalyticsApp/Scripts/App/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
