@@ -8,6 +8,14 @@ using System.Threading.Tasks;
 namespace AnalysticsLibrary.Models
 {
     [Serializable]
+    public class Request<T>
+    {
+        [JsonProperty("data")]
+        public T Data { get; set; }
+
+    }
+
+    [Serializable]
     public class AuthRequest
     {
         [JsonProperty("username")]

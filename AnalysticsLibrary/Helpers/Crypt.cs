@@ -10,8 +10,12 @@ namespace AnalyticsLibrary.Helpers
 
         private static byte[] salt = Encoding.ASCII.GetBytes("9asd$ioasj/&75z");
         private static string secret = "23sdad§$da&d%§$34gaz";
-
-        public static string EncodeHash(string password, string salt)
+        /// <summary>
+        ///  Hash the password to secret.
+        /// </summary>
+        /// <param name="password">Passwort</param>
+        /// <returns>Password Hash // secret</returns>
+        public static string EncodeHash(string username, string password)
         {
             SHA256 sha256 = new SHA256CryptoServiceProvider();
             byte[] digest = sha256.ComputeHash(Encoding.UTF8.GetBytes(password + salt));
@@ -20,7 +24,11 @@ namespace AnalyticsLibrary.Helpers
         }
 
 
-
+        /// <summary>
+        /// Encrypt a string
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <returns>Decryptet String</returns>
         public static string Encrypt(string plainText)
         {
             Rfc2898DeriveBytes key = new Rfc2898DeriveBytes(secret, salt);
@@ -32,7 +40,11 @@ namespace AnalyticsLibrary.Helpers
             ms.Close();
             return Convert.ToBase64String(ms.ToArray());
         }
-
+        /// <summary>
+        /// Decrypt a encrypted string
+        /// </summary>
+        /// <param name="base64Text"></param>
+        /// <returns></returns>
         public static string Decrypt(string base64Text)
         {
             Rfc2898DeriveBytes key = new Rfc2898DeriveBytes(secret, salt);

@@ -15,10 +15,12 @@ namespace AnalysticsLibrary.Authorization
 {
     public static class RequestHeader
     {
+        /// <summary>
+        /// Add request authorization header to WCF request.
+        /// </summary>
         public static void AddAuthorizationHeader()
         {
             HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
-            Debug.WriteLine(authCookie);
             if (authCookie != null)
             {
 

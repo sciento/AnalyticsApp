@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Net;
 using AnalyticsLibrary.Models;
+using AnalysticsLibrary.Users;
 
 namespace AnalyticsServer.Services
 {
@@ -16,6 +17,24 @@ namespace AnalyticsServer.Services
     public class UsersService : IUsersService
     {
         private AnalyticsEntities ae = new AnalyticsEntities();
+
+        public bool CheckEmail(string email)
+        {
+            Users checkEmail = ae.Users.Where(u => u.Email == email).First();
+            if (checkEmail == null)
+                return true;
+
+            return false;
+        }
+
+        public bool CheckUsername(string username)
+        {
+            Users checkEmail = ae.Users.Where(u => u.Username == username).First();
+            if (checkEmail == null)
+                return true;
+
+            return false;
+        }
 
         public Response<Users> Get()
         {
@@ -30,9 +49,27 @@ namespace AnalyticsServer.Services
             throw new NotImplementedException();
         }
 
-        public Response<Users> Save()
+        public bool Save(Registration newUser)
         {
-            throw new NotImplementedException();
+            Users user = new Users {
+                Id = Guid.NewGuid(),
+                Username = newUser.Username,
+                Password = newUser.Password,
+                Email = newUser.Email
+            };
+            try
+            {
+                ae.Users.Add(user);
+                ae.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+
+                Debug.WriteLine(e.Message);
+                return false;
+            }
+
         }
 
         public Response<Users> Update(string id)

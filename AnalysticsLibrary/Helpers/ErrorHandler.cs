@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace AnalysticsLibrary.Helpers
 {
+
     public static class ErrorHandler
     {
+        /// <summary>
+        /// Extension for handling Error Messages at one place
+        /// </summary>
+        /// <param name="err">Extended error object</param>
+        /// <param name="errorMessage">String from Exception or other string that contains a Error-StatusCode.</param>
+        /// <returns>A filled error object</returns>
         public static Error SetError(this Error err, string errorMessage)
         {
 
@@ -39,7 +46,7 @@ namespace AnalysticsLibrary.Helpers
                 err.Message = "The server encountered an unexpected condition which prevented it from fulfilling the request.";
             }
 
-            else if (errorMessage.Contains("999"))
+            else if (errorMessage.Contains("9999"))
             {
                 err.Name = "999 - Wrong Login";
                 err.Message = "Wrong Login, try again.";

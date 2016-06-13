@@ -2,7 +2,7 @@
 
     export namespace Model {
 
-        export interface AuthRequest {
+        export interface Auth {
             username: string;
             secret: string;
         }

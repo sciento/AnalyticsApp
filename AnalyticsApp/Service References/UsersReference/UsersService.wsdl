@@ -4,8 +4,9 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:37491/Services/Users/UsersService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:37491/Services/Users/UsersService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:37491/Services/Users/UsersService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AnalyticsLibrary.Models" />
-      <xsd:import schemaLocation="http://localhost:37491/Services/Users/UsersService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AnalyticsServer.Models" />
+      <xsd:import schemaLocation="http://localhost:37491/Services/Users/UsersService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AnalysticsLibrary.Users" />
+      <xsd:import schemaLocation="http://localhost:37491/Services/Users/UsersService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AnalyticsLibrary.Models" />
+      <xsd:import schemaLocation="http://localhost:37491/Services/Users/UsersService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/AnalyticsServer.Models" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUsersService_Save_InputMessage">
@@ -13,6 +14,18 @@
   </wsdl:message>
   <wsdl:message name="IUsersService_Save_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsersService_CheckUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUsername" />
+  </wsdl:message>
+  <wsdl:message name="IUsersService_CheckUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsersService_CheckEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckEmail" />
+  </wsdl:message>
+  <wsdl:message name="IUsersService_CheckEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckEmailResponse" />
   </wsdl:message>
   <wsdl:message name="IUsersService_Get_InputMessage">
     <wsdl:part name="parameters" element="tns:Get" />
@@ -37,6 +50,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUsersService/Save" message="tns:IUsersService_Save_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsersService/SaveResponse" message="tns:IUsersService_Save_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CheckUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsersService/CheckUsername" message="tns:IUsersService_CheckUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsersService/CheckUsernameResponse" message="tns:IUsersService_CheckUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsersService/CheckEmail" message="tns:IUsersService_CheckEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsersService/CheckEmailResponse" message="tns:IUsersService_CheckEmail_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Get">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsersService/Get" message="tns:IUsersService_Get_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsersService/GetResponse" message="tns:IUsersService_Get_OutputMessage" />
@@ -54,6 +75,24 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Save">
       <soap:operation soapAction="http://tempuri.org/IUsersService/Save" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUsername">
+      <soap:operation soapAction="http://tempuri.org/IUsersService/CheckUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmail">
+      <soap:operation soapAction="http://tempuri.org/IUsersService/CheckEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

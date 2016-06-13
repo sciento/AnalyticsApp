@@ -3,6 +3,7 @@ using AnalysticsLibrary.Helpers;
 using AnalysticsLibrary.Models;
 using AnalyticsApp.Models;
 using AnalyticsApp.UsersReference;
+using AnalyticsLibrary.Helpers;
 using AnalyticsLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -28,11 +29,12 @@ namespace AnalyticsApp.Controllers
 
         /// <summary>
         /// Check Login Action
+        /// Set Cookie if login was true
         /// </summary>
         /// <returns></returns>
         [HttpPost]
         [Route("")]
-        public IHttpActionResult AuthRequest(AuthRequest authRequest)
+        public IHttpActionResult AuthRequest(Request<AuthRequest> authRequest)
         {
             Response<Users> authResponse = new Response<Users>();
             authResponse.Error = new Error();
@@ -41,12 +43,14 @@ namespace AnalyticsApp.Controllers
                 try
                 {
                     RequestHeader.AddAuthorizationHeader();
-                    if (authService.Auth(authRequest)) {
-                        SetAuthCookie(authRequest);
+                    authRequest.Data.Secret = Crypt.EncodeHash(authRequest.Data.Username, authRequest.Data.Secret);
+                    Debug.WriteLine(authRequest.Data.Secret);
+                    if (authService.Auth(authRequest.Data)) {
+                        SetAuthCookie(authRequest.Data);
                         return Json(authResponse);
                     } else
                     {
-                        authResponse.Error.SetError("999 - LoginFail");
+                        authResponse.Error.SetError("9999 - LoginFail");
                     }
                 }
                 catch (CommunicationException e)

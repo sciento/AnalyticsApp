@@ -95,10 +95,22 @@ namespace AnalyticsApp.UsersReference {
     public interface IUsersService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/Save", ReplyAction="http://tempuri.org/IUsersService/SaveResponse")]
-        AnalyticsLibrary.Models.Response<AnalyticsApp.UsersReference.Users> Save();
+        bool Save(AnalysticsLibrary.Users.Registration newUser);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/Save", ReplyAction="http://tempuri.org/IUsersService/SaveResponse")]
-        System.Threading.Tasks.Task<AnalyticsLibrary.Models.Response<AnalyticsApp.UsersReference.Users>> SaveAsync();
+        System.Threading.Tasks.Task<bool> SaveAsync(AnalysticsLibrary.Users.Registration newUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/CheckUsername", ReplyAction="http://tempuri.org/IUsersService/CheckUsernameResponse")]
+        bool CheckUsername(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/CheckUsername", ReplyAction="http://tempuri.org/IUsersService/CheckUsernameResponse")]
+        System.Threading.Tasks.Task<bool> CheckUsernameAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/CheckEmail", ReplyAction="http://tempuri.org/IUsersService/CheckEmailResponse")]
+        bool CheckEmail(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/CheckEmail", ReplyAction="http://tempuri.org/IUsersService/CheckEmailResponse")]
+        System.Threading.Tasks.Task<bool> CheckEmailAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/Get", ReplyAction="http://tempuri.org/IUsersService/GetResponse")]
         AnalyticsLibrary.Models.Response<AnalyticsApp.UsersReference.Users> Get();
@@ -146,12 +158,28 @@ namespace AnalyticsApp.UsersReference {
                 base(binding, remoteAddress) {
         }
         
-        public AnalyticsLibrary.Models.Response<AnalyticsApp.UsersReference.Users> Save() {
-            return base.Channel.Save();
+        public bool Save(AnalysticsLibrary.Users.Registration newUser) {
+            return base.Channel.Save(newUser);
         }
         
-        public System.Threading.Tasks.Task<AnalyticsLibrary.Models.Response<AnalyticsApp.UsersReference.Users>> SaveAsync() {
-            return base.Channel.SaveAsync();
+        public System.Threading.Tasks.Task<bool> SaveAsync(AnalysticsLibrary.Users.Registration newUser) {
+            return base.Channel.SaveAsync(newUser);
+        }
+        
+        public bool CheckUsername(string username) {
+            return base.Channel.CheckUsername(username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckUsernameAsync(string username) {
+            return base.Channel.CheckUsernameAsync(username);
+        }
+        
+        public bool CheckEmail(string email) {
+            return base.Channel.CheckEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckEmailAsync(string email) {
+            return base.Channel.CheckEmailAsync(email);
         }
         
         public AnalyticsLibrary.Models.Response<AnalyticsApp.UsersReference.Users> Get() {

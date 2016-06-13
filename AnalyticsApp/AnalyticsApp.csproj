@@ -361,6 +361,9 @@
     <None Include="Service References\UsersReference\UsersService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\UsersReference\UsersService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\Visits\VisitsService.disco" />
     <None Include="Service References\Visits\configuration91.svcinfo" />
     <None Include="Service References\Visits\configuration.svcinfo" />
@@ -475,8 +478,10 @@
     <TypeScriptCompile Include="src\common\notification.ts" />
     <TypeScriptCompile Include="src\common\request.ts" />
     <TypeScriptCompile Include="src\common\routes.ts" />
+    <TypeScriptCompile Include="src\models\registration.ts" />
+    <TypeScriptCompile Include="src\models\apirequest.ts" />
     <TypeScriptCompile Include="src\models\apiresponse.ts" />
-    <TypeScriptCompile Include="src\models\authrequest.ts" />
+    <TypeScriptCompile Include="src\models\auth.ts" />
     <TypeScriptCompile Include="src\models\browserstatistic.ts" />
     <TypeScriptCompile Include="src\models\countrystatistic.ts" />
     <TypeScriptCompile Include="src\models\error.ts" />

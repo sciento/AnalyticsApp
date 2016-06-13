@@ -7,15 +7,22 @@ using System.Web;
 using System.ServiceModel.Web;
 using AnalyticsServer.Services;
 using AnalyticsLibrary.Models;
+using AnalysticsLibrary.Users;
 
 namespace AnalyticsServer.Interfaces
 {
     [ServiceContract]
     public interface IUsersService
     {
-        [Auth]
+
         [OperationContract]
-        Response<Users> Save();
+        bool Save(Registration newUser);
+
+        [OperationContract]
+        bool CheckUsername(string username);
+
+        [OperationContract]
+        bool CheckEmail(string email);
 
         [Auth]
         [OperationContract]

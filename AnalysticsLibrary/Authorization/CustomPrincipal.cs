@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AnalysticsLibrary.Authorization
 {
+    /// <summary>
+    /// CustomPrincipal Identity for MVC Cookie Authentification
+    /// </summary>
     public class CustomPrincipal : ICustomPrincipal
     {
         public IIdentity Identity { get; private set; }
