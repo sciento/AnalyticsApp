@@ -5,7 +5,7 @@
         export interface User {
             id: string;
             displayName: string;
-            sites?: Array<string>;
+            sites: Array<string>;
         }
     }
 }

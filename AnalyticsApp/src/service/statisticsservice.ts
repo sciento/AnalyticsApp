@@ -5,7 +5,6 @@ namespace AnalyticsApp {
 
     export namespace StatisticsService {
         import Observable = Rx.Observable;
-
         import ApiResponse = Model.ApiResponse;
         import BrowserStatistic = Model.BrowserStatistic;
         import CountryStatistic = Model.CountryStatistic;
@@ -25,43 +24,35 @@ namespace AnalyticsApp {
             fromDate?: Date;
             toDate?: Date;
         }
+
         const defaultConfig: StatisticConfig = { order: Order.ASCENDING, sortBy: "visits" };
 
         export class VisitStatistics {
+            private static responseTransformer: (o: any) => VisitStatistic = o => ({
+                site: {
+                    id: o.site.site_id,
+                    title: o.site.title,
+                    link: o.site.link,
+                    owner: {
+                        id: o.site.owner.user_id,
+                        displayName: o.site.owner.display_name,
+                        sites: o.site.owner.sites
+                    },
+                },
+                averageVisitTime: o.avg_visit_time,
+                visits: o.visits
+            });
+
             static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig)
                 : Observable<VisitStatistic> {
 
-                return getContentOf(`/api/visits/${userId}/${siteId}`, o => ({
-                    site: {
-                        id: o.site.site_id,
-                        title: o.site.title,
-                        link: o.site.link,
-                        owner: {
-                            id: o.site.owner.user_id,
-                            displayName: o.site.owner.display_name
-                        },
-                    },
-                    averageVisitTime: o.avg_visit_time,
-                    visits: o.visits
-                }));
+                return getContentOf(`/api/visits/${userId}/${siteId}`, VisitStatistics.responseTransformer);
             }
 
             static getAllByUserId(userId: string, config: StatisticConfig = defaultConfig)
                 : Observable<VisitStatistic> {
 
-                return getContentOf(`/api/visits/${userId}`, o => ({
-                    site: {
-                        id: o.site.site_id,
-                        title: o.site.title,
-                        link: o.site.link,
-                        owner: {
-                            id: o.site.owner.user_id,
-                            displayName: o.site.owner.display_name
-                        },
-                    },
-                    averageVisitTime: o.avg_visit_time,
-                    visits: o.visits
-                }));
+                return getContentOf(`/api/visits/${userId}`, VisitStatistics.responseTransformer);
             }
         }
 
@@ -79,7 +70,8 @@ namespace AnalyticsApp {
                         link: o.site.link,
                         owner: {
                             id: o.site.owner.user_id,
-                            displayName: o.site.owner.display_name
+                            displayName: o.site.owner.display_name,
+                            sites: o.site.owner.sites
                         }
                     }
                 }));
@@ -91,8 +83,24 @@ namespace AnalyticsApp {
             static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig)
                 : Observable<BrowserStatistic> {
 
-                // TODO
-                return Observable.empty<BrowserStatistic>();
+                // FIXME create controller
+                return getContentOf(`/api/analyse/browser/${userId}/${siteId}`, o => ({
+                    name: o.name,
+                    version: o.version,
+                    userAgent: o.user_agent,
+                    language: o.language,
+                    site: {
+                        id: o.site.site_id,
+                        title: o.site.title,
+                        link: o.site.link,
+                        owner: {
+                            id: o.site.owner.user_id,
+                            displayName: o.site.owner.display_name,
+                            sites: o.site.owner.sites
+                        }
+                    },
+                    visits: o.visits
+                }));
             }
         }
 
@@ -101,14 +109,28 @@ namespace AnalyticsApp {
             static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig)
                 : Observable<OperatingSystemStatistic> {
 
-                // TODO
-                return Observable.empty<OperatingSystemStatistic>();
+                // FIXME create controller
+                return getContentOf(`/api/analyse/os/${userId}/${siteId}`, o => ({
+                    name: o.name,
+                    version: o.version,
+                    site: {
+                        id: o.site.site_id,
+                        title: o.site.title,
+                        link: o.site.link,
+                        owner: {
+                            id: o.site.owner.user_id,
+                            displayName: o.site.owner.display_name,
+                            sites: o.site.owner.sites
+                        }
+                    },
+                    visits: o.visits
+                }));
             }
         }
 
         function getContentOf<T>(uri: string, transformer: (o: any) => T): Observable<T> {
             const requestHeaders = new Headers();
-            requestHeaders.set("Content-Type", "application/json");
+            requestHeaders.set("Accept", "application/json");
             requestHeaders.set("Accept-Charset", "utf-8");
 
             return Observable.create<ApiResponse<any>>(subscriber => {
@@ -126,7 +148,7 @@ namespace AnalyticsApp {
                             subscriber.onCompleted();
                         }
                     })
-                    .catch((e: any) => subscriber.onError(new Error(e)));
+                    .catch((e: any) => subscriber.onError(e));
             }).flatMap(jsonResponse => Observable.from(jsonResponse.items))
                 .map(transformer);
         }

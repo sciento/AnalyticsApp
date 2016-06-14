@@ -8,14 +8,18 @@ namespace AnalyticsApp {
 
     declare var Chart: any;
 
-    Observable.fromEvent(document, "DOMContentLoaded").subscribe(evt => {
+    Observable.fromEvent<Event>(document, "DOMContentLoaded").subscribe(evt => {
         const canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("exampleChart");
         const ctx: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
 
         // TODO this is just example data
-        Statistics.VisitStatistics.getAllByUserId("1").subscribe(x => console.log(x), e => console.log(e));
+        Statistics.VisitStatistics.getAllByUserId("1").subscribe(x => console.log(x), e => console.error(e));
 
-        Statistics.VisitStatistics.getByUserId("1", "2").subscribe(x => console.log(x), e => console.log(e));
+        Statistics.VisitStatistics.getByUserId("1", "2").subscribe(x => console.log(x), e => console.error(e));
+
+        Statistics.BrowserStatistics.getByUserId("1", "2").subscribe(x => console.log(x), e => console.error(e));
+
+        Statistics.OperatingSystemStatistics.getByUserId("1", "2").subscribe(x => console.log(x), e => console.error(e));
 
         Statistics.CountryStatistics.getByUserId("1", "2")
             .reduce((acc, data) => {
@@ -59,6 +63,6 @@ namespace AnalyticsApp {
                 console.log(chartConfig);
                 const chart = new Chart(ctx, chartConfig);
             },
-            e => console.log(e));
+            e => console.error(e));
     });
 }

@@ -38,7 +38,8 @@ namespace AnalyticsApp.Controllers
         {
             Response<Users> authResponse = new Response<Users>();
             authResponse.Error = new Error();
-            using (new OperationContextScope(authService.InnerChannel))
+
+            using (var operationContextScope = new OperationContextScope(authService.InnerChannel))
             {
                 try
                 {

@@ -9,7 +9,7 @@ var AnalyticsApp;
                 type: method,
                 url: url,
                 data: JSON.stringify(data),
-                dataType: 'json',
+                dataType: "json",
                 contentType: "application/json; charset=utf-8",
             }).done(callback);
         };
