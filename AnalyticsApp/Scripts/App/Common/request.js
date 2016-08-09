@@ -4,26 +4,26 @@ var AnalyticsApp;
     var Request = (function () {
         function Request() {
         }
-        Request.Handler = function (method, url, data, callback) {
-            $.ajax({
+        Request.Handler = function (method, url, data) {
+            return $.ajax({
                 type: method,
                 url: url,
                 data: JSON.stringify(data),
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
-            }).done(callback);
+            });
         };
-        Request.Get = function (url, data, callback) {
-            this.Handler("GET", url, data, callback);
+        Request.Get = function (url, data) {
+            return Request.Handler("GET", url, data);
         };
-        Request.Put = function (url, data, callback) {
-            this.Handler("PUT", url, data, callback);
+        Request.Put = function (url, data) {
+            return Request.Handler("PUT", url, data);
         };
-        Request.Delete = function (url, data, callback) {
-            this.Handler("DELETE", url, data, callback);
+        Request.Delete = function (url, data) {
+            return Request.Handler("DELETE", url, data);
         };
-        Request.Post = function (url, data, callback) {
-            this.Handler("POST", url, data, callback);
+        Request.Post = function (url, data) {
+            return Request.Handler("POST", url, data);
         };
         return Request;
     }());

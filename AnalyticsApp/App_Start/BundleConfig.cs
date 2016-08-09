@@ -12,7 +12,7 @@ namespace AnalyticsApp
                 "~/Scripts/Chart.js",
                 "~/Scripts/rx.all.js",
                 "~/Scripts/App/service/statisticsservice.js",
-                "~/Scripts/App/dashboard.js"));
+                "~/Scripts/App/views/dashboard.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/rxjs").Include(
                 "~/Scripts/rx.all.js"));

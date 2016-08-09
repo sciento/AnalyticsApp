@@ -11,8 +11,8 @@ namespace AnalyticsApp {
         import OperatingSystemStatistic = Model.OperatingSystemStatistic;
         import VisitStatistic = Model.VisitStatistic;
 
-        declare var fetch: any;
         declare var Headers: any;
+        declare var fetch: any;
 
         export enum Order {
             DESCENDING, ASCENDING
@@ -133,23 +133,20 @@ namespace AnalyticsApp {
             requestHeaders.set("Accept", "application/json");
             requestHeaders.set("Accept-Charset", "utf-8");
 
-            return Observable.create<ApiResponse<any>>(subscriber => {
-                fetch(uri, {
-                    method: "GET",
-                    headers: requestHeaders,
-                    mode: "cors",
-                    cache: "default"
-                }).then((response: any) => response.json())
-                    .then((jsonResponse: ApiResponse<any>) => {
-                        if (jsonResponse.error) {
-                            subscriber.onError(new Error(jsonResponse.error.message));
-                        } else {
-                            subscriber.onNext(jsonResponse);
-                            subscriber.onCompleted();
-                        }
-                    })
-                    .catch((e: any) => subscriber.onError(e));
-            }).flatMap(jsonResponse => Observable.from(jsonResponse.items))
+            return Observable.fromPromise<ApiResponse<any>>(fetch(uri, {
+                method: "GET",
+                headers: requestHeaders,
+                mode: "cors",
+                cache: "default"
+            }).then((response: any) => response.json())
+                .then((jsonResponse: ApiResponse<any>) => {
+                    if (jsonResponse.error) {
+                        return Promise.reject<ApiResponse<any>>(new Error(jsonResponse.error.message));
+                    } else {
+                        return Promise.resolve(jsonResponse);
+                    }
+                }))
+                .flatMap(jsonResponse => Observable.from(jsonResponse.items))
                 .map(transformer);
         }
     }

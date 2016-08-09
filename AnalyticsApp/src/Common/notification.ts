@@ -5,17 +5,18 @@ namespace AnalyticsApp {
 
     export class Notification {
         private static time: number = 5000;
+
         private static Handler(type: string, message: string) {
-            var id = this.GetRandomId();
-            var newNotification = document.createElement("div");
-            var newNotificationButton = document.createElement("button");
-            var notification = document.createTextNode(message);
-            var closeButton = document.createTextNode("x");
+            const id = Notification.GetRandomId();
+            const newNotification = document.createElement("div");
+            const newNotificationButton = document.createElement("button");
+            const notification = document.createTextNode(message);
+            const closeButton = document.createTextNode("x");
 
             newNotificationButton.setAttribute("class", "close");
             newNotificationButton.setAttribute("data-dismiss", "alert");
             newNotificationButton.setAttribute("type", "button");
-            newNotification.setAttribute("class", "notification alert alert-" + type);
+            newNotification.setAttribute("class", `notification alert alert-${type}`);
             newNotification.setAttribute("id", id);
 
             newNotificationButton.appendChild(closeButton);
@@ -23,45 +24,45 @@ namespace AnalyticsApp {
             newNotification.appendChild(newNotificationButton);
             document.getElementById("notification-frame").appendChild(newNotification);
 
-            this.Timeout(id);
+            Notification.Timeout(id);
         }
 
         private static Timeout(id: string) {
-            $("#" + id).fadeIn("slow");
-            setTimeout(function () {
-                $("#" + id).fadeOut("slow", function () {
-                    $("#" + id).remove();
-                });
-            }, this.time);
+            $(`#${id}`).fadeIn("slow");
+            setTimeout(() =>
+                $(`#${id}`).fadeOut("slow", () =>
+                    $(`#${id}`).remove()),
+                Notification.time);
         }
 
         private static GetRandomId(): string {
-            var id = Math.floor((Math.random() * 1000) + 1);
-            if ($("notification").length < 1) {
-                return "notification" + id;
-            }
+            const id = Math.floor((Math.random() * 1000) + 1);
 
-            return this.GetRandomId();
+            if ($(`#notification${id}`).length < 1) {
+                return `notification${id}`;
+            } else {
+                return Notification.GetRandomId();
+            }
         }
 
         public static Success(message: string) {
             console.log("[Success] " + message);
-            this.Handler("success", message);
+            Notification.Handler("success", message);
         }
 
         public static Error(message: string) {
             console.error("[Error] " + message);
-            this.Handler("danger", message);
+            Notification.Handler("danger", message);
         }
 
         public static Info(message: string) {
             console.info("[Info] " + message);
-            this.Handler("info", message);
+            Notification.Handler("info", message);
         }
 
         public static Warn(message: string) {
             console.warn("[Warn] " + message);
-            this.Handler("warning", message);
+            Notification.Handler("warning", message);
         }
     }
 }

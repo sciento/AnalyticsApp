@@ -12,7 +12,6 @@
     "./src/common/notification.ts",
     "./src/common/request.ts",
     "./src/common/routes.ts",
-    "./src/dashboard.ts",
     "./src/models/apirequest.ts",
     "./src/models/apiresponse.ts",
     "./src/models/registration.ts",
@@ -26,6 +25,8 @@
     "./src/models/visitstatistic.ts",
     "./src/public/public.ts",
     "./src/service/statisticsservice.ts",
-    "./Scripts/rx.all.d.ts"
+    "./src/views/dashboard.ts",
+    "./Scripts/rx.all.d.ts",
+    "./Scripts/typings/core-js/core-js.d.ts"
   ]
 }

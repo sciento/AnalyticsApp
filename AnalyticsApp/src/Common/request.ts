@@ -4,32 +4,30 @@ namespace AnalyticsApp {
 
     export class Request {
 
-        private static Handler(method: string, url: string, data: any, callback: JQueryPromiseCallback<any> | JQueryPromiseCallback<any>[]) {
-            $.ajax({
+        private static Handler(method: string, url: string, data: any): JQueryXHR {
+            return $.ajax({
                 type: method,
                 url: url,
                 data: JSON.stringify(data),
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
-            }).done(callback);
-        }  
-
-        public static Get(url: string, data: any, callback: JQueryPromiseCallback<any> | JQueryPromiseCallback<any>[]): void {
-            this.Handler("GET", url, data, callback);
+            });
         }
 
-        public static Put(url: string, data: any, callback: JQueryPromiseCallback<any> | JQueryPromiseCallback<any>[]): void {
-            this.Handler("PUT", url, data, callback);
+        public static Get(url: string, data: any): JQueryXHR {
+            return Request.Handler("GET", url, data);
         }
 
-        public static Delete(url: string, data: any, callback: JQueryPromiseCallback<any> | JQueryPromiseCallback<any>[]): void {
-            this.Handler("DELETE", url, data, callback);
+        public static Put(url: string, data: any): JQueryXHR {
+            return Request.Handler("PUT", url, data);
         }
 
-        public static Post(url: string, data: any, callback: JQueryPromiseCallback<any> | JQueryPromiseCallback<any>[]): void {
-            this.Handler("POST", url, data, callback);
+        public static Delete(url: string, data: any): JQueryXHR {
+            return Request.Handler("DELETE", url, data);
         }
-         
+
+        public static Post(url: string, data: any): JQueryXHR {
+            return Request.Handler("POST", url, data);
+        }
     }
-
 }
