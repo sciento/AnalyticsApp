@@ -8,11 +8,16 @@ namespace AnalyticsApp
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                "~/Scripts/angular.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/dashboard").Include(
                 "~/Scripts/Chart.js",
                 "~/Scripts/rx.all.js",
                 "~/Scripts/App/service/statisticsservice.js",
-                "~/Scripts/App/views/dashboard.js"));
+                "~/Scripts/App/app.module.js",
+                "~/Scripts/App/dashboard/dashboard.module.js",
+                "~/Scripts/App/dashboard/dashboard.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/rxjs").Include(
                 "~/Scripts/rx.all.js"));
@@ -37,7 +42,6 @@ namespace AnalyticsApp
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/jquery-{version}.js",
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 

@@ -9,9 +9,12 @@
     "target": "es5"
   },
   "files": [
+    "./src/app.module.ts",
     "./src/common/notification.ts",
     "./src/common/request.ts",
     "./src/common/routes.ts",
+    "./src/dashboard/dashboard.ts",
+    "./src/dashboard/dashboard.module.ts",
     "./src/models/apirequest.ts",
     "./src/models/apiresponse.ts",
     "./src/models/registration.ts",
@@ -25,8 +28,9 @@
     "./src/models/visitstatistic.ts",
     "./src/public/public.ts",
     "./src/service/statisticsservice.ts",
-    "./src/views/dashboard.ts",
     "./Scripts/rx.all.d.ts",
-    "./Scripts/typings/core-js/core-js.d.ts"
+    "./Scripts/typings/angularjs/angular.d.ts",
+    "./Scripts/typings/core-js/core-js.d.ts",
+    "./Scripts/typings/jquery/jquery.d.ts"
   ]
 }

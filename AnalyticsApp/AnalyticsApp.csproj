@@ -239,6 +239,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.js" />
@@ -251,6 +254,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
@@ -478,10 +482,21 @@
     <TypeScriptCompile Include="Scripts\rx.time.es6.d.ts" />
     <TypeScriptCompile Include="Scripts\rx.virtualtime.d.ts" />
     <TypeScriptCompile Include="Scripts\rx.virtualtime.es6.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\core-js\core-js.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="src\app.module.ts" />
     <TypeScriptCompile Include="src\common\notification.ts" />
     <TypeScriptCompile Include="src\common\request.ts" />
     <TypeScriptCompile Include="src\common\routes.ts" />
+    <TypeScriptCompile Include="src\dashboard\dashboard.module.ts" />
     <TypeScriptCompile Include="src\models\registration.ts" />
     <TypeScriptCompile Include="src\models\apirequest.ts" />
     <TypeScriptCompile Include="src\models\apiresponse.ts" />
@@ -495,7 +510,7 @@
     <TypeScriptCompile Include="src\models\visitstatistic.ts" />
     <TypeScriptCompile Include="src\public\public.ts" />
     <TypeScriptCompile Include="src\service\statisticsservice.ts" />
-    <TypeScriptCompile Include="src\views\dashboard.ts" />
+    <TypeScriptCompile Include="src\dashboard\dashboard.ts" />
     <TypeScriptCompile Include="src\common\_reference.ts" />
   </ItemGroup>
   <ItemGroup>

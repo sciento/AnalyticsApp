@@ -8,6 +8,23 @@ namespace AnalyticsApp {
 
     declare var Chart: any;
 
+    /*===============================================================================================================*/
+
+    // TODO: this is only to check that angularjs was setup correctly
+
+    class DashboardController {
+        title: string;
+
+        constructor() {
+            this.title = "Dashboard";
+        }
+    }
+
+    angular.module("dashboard")
+        .controller("DashboardController", DashboardController);
+
+    /*===============================================================================================================*/
+
     Observable.fromEvent<Event>(document, "DOMContentLoaded").subscribe(evt => {
         const canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("exampleChart");
         const ctx: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");

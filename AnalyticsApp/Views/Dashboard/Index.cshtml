@@ -8,8 +8,12 @@
     </style>
 }
 
-<h2>Dashboard</h2>
-
-<canvas id="exampleChart" width="100" height="50"></canvas>
-
+@Scripts.Render("~/bundles/angular")
 @Scripts.Render("~/bundles/dashboard")
+
+<div ng-controller="DashboardController as vm">
+
+    <h2>{{vm.title}}</h2>
+
+    <canvas id="exampleChart" width="100" height="50"></canvas>
+</div>
