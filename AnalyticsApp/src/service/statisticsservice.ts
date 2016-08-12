@@ -28,20 +28,7 @@ namespace AnalyticsApp {
         const defaultConfig: StatisticConfig = { order: Order.ASCENDING, sortBy: "visits" };
 
         export class VisitStatistics {
-            private static responseTransformer: (o: any) => VisitStatistic = o => ({
-                site: {
-                    id: o.site.site_id,
-                    title: o.site.title,
-                    link: o.site.link,
-                    owner: {
-                        id: o.site.owner.user_id,
-                        displayName: o.site.owner.display_name,
-                        sites: o.site.owner.sites
-                    },
-                },
-                averageVisitTime: o.avg_visit_time,
-                visits: o.visits
-            });
+            private static responseTransformer: (o: any) => VisitStatistic = o => o as VisitStatistic;
 
             static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig)
                 : Observable<VisitStatistic> {
@@ -61,20 +48,7 @@ namespace AnalyticsApp {
             static getByUserId(userId: string, siteId: string, config: StatisticConfig = defaultConfig)
                 : Observable<CountryStatistic> {
 
-                return getContentOf(`/api/countries/${userId}/${siteId}`, o => ({
-                    country: o.country,
-                    visits: o.visits,
-                    site: {
-                        id: o.site.site_id,
-                        title: o.site.title,
-                        link: o.site.link,
-                        owner: {
-                            id: o.site.owner.user_id,
-                            displayName: o.site.owner.display_name,
-                            sites: o.site.owner.sites
-                        }
-                    }
-                }));
+                return getContentOf(`/api/countries/${userId}/${siteId}`, o => o as CountryStatistic);
             }
         }
 
@@ -84,23 +58,7 @@ namespace AnalyticsApp {
                 : Observable<BrowserStatistic> {
 
                 // FIXME create controller
-                return getContentOf(`/api/analyse/browser/${userId}/${siteId}`, o => ({
-                    name: o.name,
-                    version: o.version,
-                    userAgent: o.user_agent,
-                    language: o.language,
-                    site: {
-                        id: o.site.site_id,
-                        title: o.site.title,
-                        link: o.site.link,
-                        owner: {
-                            id: o.site.owner.user_id,
-                            displayName: o.site.owner.display_name,
-                            sites: o.site.owner.sites
-                        }
-                    },
-                    visits: o.visits
-                }));
+                return getContentOf(`/api/analyse/browser/${userId}/${siteId}`, o => o as BrowserStatistic);
             }
         }
 
@@ -110,21 +68,7 @@ namespace AnalyticsApp {
                 : Observable<OperatingSystemStatistic> {
 
                 // FIXME create controller
-                return getContentOf(`/api/analyse/os/${userId}/${siteId}`, o => ({
-                    name: o.name,
-                    version: o.version,
-                    site: {
-                        id: o.site.site_id,
-                        title: o.site.title,
-                        link: o.site.link,
-                        owner: {
-                            id: o.site.owner.user_id,
-                            displayName: o.site.owner.display_name,
-                            sites: o.site.owner.sites
-                        }
-                    },
-                    visits: o.visits
-                }));
+                return getContentOf(`/api/analyse/os/${userId}/${siteId}`, o => o as OperatingSystemStatistic);
             }
         }
 

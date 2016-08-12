@@ -30,7 +30,7 @@ namespace AnalysticsLibrary.Models
         [JsonProperty("version")]
         public string Version { get; private set; }
 
-        [JsonProperty("user_agent")]
+        [JsonProperty("userAgent")]
         public string UserAgent { get; private set; }
 
         [JsonProperty("language")]

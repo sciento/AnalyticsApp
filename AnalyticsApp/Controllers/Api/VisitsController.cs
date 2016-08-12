@@ -1,4 +1,5 @@
-﻿using AnalyticsApp.Models;
+﻿using AnalysticsLibrary.Models;
+using AnalyticsApp.Models;
 using AnalyticsLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace AnalyticsApp.Controllers
                 {
                     new VisitStatistic(
                         new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"),
-                        new User(Guid.NewGuid(), "Homer J.")),
+                        new Owner(Guid.NewGuid(), "Homer J.")),
                         230,
                         1337)
                 }
@@ -50,22 +51,22 @@ namespace AnalyticsApp.Controllers
                 {
                     new VisitStatistic(
                         new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"),
-                        new User(Guid.NewGuid(), "Homer J.")),
+                        new Owner(Guid.NewGuid(), "Homer J.")),
                         230,
                         1337),
                     new VisitStatistic(
                         new Site(Guid.NewGuid(), "Test", new Uri("http://www.test.com"),
-                        new User(Guid.NewGuid(), "Homer J.")),
+                        new Owner(Guid.NewGuid(), "Homer J.")),
                         123,
                         1028),
                     new VisitStatistic(
                         new Site(Guid.NewGuid(), "Example 2", new Uri("http://www.example2.com"),
-                        new User(Guid.NewGuid(), "Homer J.")),
+                        new Owner(Guid.NewGuid(), "Homer J.")),
                         759,
                         12480),
                     new VisitStatistic(
                         new Site(Guid.NewGuid(), "Lorem Ipsum", new Uri("http://www.loremipsum.com"),
-                        new User(Guid.NewGuid(), "Homer J.")),
+                        new Owner(Guid.NewGuid(), "Homer J.")),
                         197,
                         496)
                 }

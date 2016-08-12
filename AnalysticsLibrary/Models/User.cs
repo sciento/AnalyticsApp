@@ -22,10 +22,10 @@ namespace AnalyticsLibrary.Models
             Sites = sites;
         }
 
-        [JsonProperty("user_id")]
+        [JsonProperty("id")]
         public Guid Id { get; private set; }
 
-        [JsonProperty("display_name")]
+        [JsonProperty("displayName")]
         public string DisplayName { get; private set; }
 
         [JsonProperty("sites")]

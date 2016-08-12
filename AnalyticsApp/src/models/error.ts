@@ -3,7 +3,7 @@
     export namespace Model {
 
         export interface Error {
-            name: string;
+            code: string;
             message: string;
         }
     }

@@ -20,7 +20,7 @@ namespace AnalyticsLibrary.Models
         [JsonProperty("site")]
         public Site Site { get; private set; }
 
-        [JsonProperty("avg_visit_time")]
+        [JsonProperty("averageVisitTime")]
         public double AverageVisitTime { get; private set; }
 
         [JsonProperty("visits")]

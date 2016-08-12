@@ -69,6 +69,7 @@
     <Compile Include="Models\CountryStatistic.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\OperatingSystemStatistic.cs" />
+    <Compile Include="Models\Owner.cs" />
     <Compile Include="Models\Requests.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\Site.cs" />

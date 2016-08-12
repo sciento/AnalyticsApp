@@ -34,9 +34,9 @@ namespace AnalyticsApp {
 
         Statistics.VisitStatistics.getByUserId("1", "2").subscribe(x => console.log(x), e => console.error(e));
 
-        Statistics.BrowserStatistics.getByUserId("1", "2").subscribe(x => console.log(x), e => console.error(e));
+        //Statistics.BrowserStatistics.getByUserId("1", "2").subscribe(x => console.log(x), e => console.error(e));
 
-        Statistics.OperatingSystemStatistics.getByUserId("1", "2").subscribe(x => console.log(x), e => console.error(e));
+        //Statistics.OperatingSystemStatistics.getByUserId("1", "2").subscribe(x => console.log(x), e => console.error(e));
 
         Statistics.CountryStatistics.getByUserId("1", "2")
             .reduce((acc, data) => {

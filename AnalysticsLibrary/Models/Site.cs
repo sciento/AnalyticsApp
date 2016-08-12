@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using AnalysticsLibrary.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace AnalyticsLibrary.Models
     [Serializable]
     public class Site
     {
-        public Site(Guid id, string title, Uri link, User owner)
+        public Site(Guid id, string title, Uri link, Owner owner)
         {
             Id = id;
             Title = title;
@@ -18,7 +19,7 @@ namespace AnalyticsLibrary.Models
             Owner = owner;
         }
 
-        [JsonProperty("site_id")]
+        [JsonProperty("id")]
         public Guid Id { get; private set; }
 
         [JsonProperty("title")]
@@ -28,6 +29,6 @@ namespace AnalyticsLibrary.Models
         public Uri Link { get; private set; }
 
         [JsonProperty("owner")]
-        public User Owner { get; private set; }
+        public Owner Owner { get; private set; }
     }
 }

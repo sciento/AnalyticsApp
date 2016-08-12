@@ -28,10 +28,12 @@ namespace AnalyticsApp {
         }
 
         private static Timeout(id: string) {
-            $(`#${id}`).fadeIn("slow");
+            const $element = $(`#${id}`);
+
+            $element.fadeIn("slow");
             setTimeout(() =>
-                $(`#${id}`).fadeOut("slow", () =>
-                    $(`#${id}`).remove()),
+                $element.fadeOut("slow", () =>
+                    $element.remove()),
                 Notification.time);
         }
 

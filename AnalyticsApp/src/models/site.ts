@@ -6,7 +6,7 @@
             id: string;
             title: string;
             link: string;
-            owner: User;
+            owner: { userId: string, displayName: string };
         }
     }
 }

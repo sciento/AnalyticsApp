@@ -10,11 +10,10 @@ namespace AnalyticsLibrary.Models
     [Serializable]
     public class Error
     {
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
         [JsonProperty("message")]
         public string Message { get; set; }
-
-
     }
 }

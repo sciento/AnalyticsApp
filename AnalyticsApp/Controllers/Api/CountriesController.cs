@@ -1,4 +1,5 @@
-﻿using AnalyticsApp.Models;
+﻿using AnalysticsLibrary.Models;
+using AnalyticsApp.Models;
 using AnalyticsLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -29,23 +30,23 @@ namespace AnalyticsApp.Controllers
                 Items = new List<CountryStatistic>
                 {
                     new CountryStatistic(
-                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new User(Guid.NewGuid(), "Homer J.")),
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new Owner(Guid.NewGuid(), "Homer J.")),
                         "Australia",
                         random.Next(100000)),
                     new CountryStatistic(
-                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new User(Guid.NewGuid(), "Homer J.")),
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new Owner(Guid.NewGuid(), "Homer J.")),
                         "Austria",
                         random.Next(100000)),
                     new CountryStatistic(
-                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new User(Guid.NewGuid(), "Homer J.")),
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new Owner(Guid.NewGuid(), "Homer J.")),
                         "Germany",
                         random.Next(100000)),
                     new CountryStatistic(
-                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new User(Guid.NewGuid(), "Homer J.")),
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new Owner(Guid.NewGuid(), "Homer J.")),
                         "Italy",
                         random.Next(100000)),
                     new CountryStatistic(
-                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new User(Guid.NewGuid(), "Homer J.")),
+                        new Site(Guid.NewGuid(), "Example", new Uri("http://www.example.com"), new Owner(Guid.NewGuid(), "Homer J.")),
                         "USA",
                         random.Next(100000))
                 }

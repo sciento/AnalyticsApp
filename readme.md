@@ -6,7 +6,7 @@
 - [TODO](#to-dos)
 - [Routing Plan](#routing-plan-api)
 - [Models](#models)
-- [JSON Response](#json response)
+- [JSON Response](#json-response)
 
 
 ##To-Dos
@@ -86,8 +86,7 @@ Die eigentlichen Nachrichten befinden sich in *items*.
 {
     "items": [],
     "error": {
-        "error_id": 0,
-        "name": "",
+        "code": "",
         "message": ""
     }
 }
@@ -97,8 +96,8 @@ Die eigentlichen Nachrichten befinden sich in *items*.
 Informationen zu einem User.
 ```json
 {
-    "user_id": "",
-    "display_name": "",
+    "id": "",
+    "displayName": "",
     "sites": []
 }
 ```
@@ -108,15 +107,15 @@ Besuchsstatistiken zu einer Seite.
 ```json
 {
     "site": {
-        "site_id": "",
+        "id": "",
         "title": "",
         "link": "",
         "owner": {
-            "user_id": "",
-            "display_name": ""
+            "userId": "",
+            "displayName": ""
         }
     },
-    "avg_visit_time": 0,
+    "averageVisitTime": 0,
     "visits": 0
 }
 ```
@@ -127,15 +126,15 @@ Besuchsstatistiken nach verwendeten Browser.
 {
     "name": "",
     "version": "",
-    "user_agent": "",
+    "userAgent": "",
     "language": "",
     "site": {
-        "site_id": "",
+        "id": "",
         "title": "",
         "link": "",
         "owner": {
-            "user_id": "",
-            "display_name": ""
+            "userId": "",
+            "displayName": ""
         }
     },
     "visits": 0
@@ -149,12 +148,12 @@ Besuchsstatistiken nach verwendeten Betriebssytem.
     "name": "",
     "version": "",
     "site": {
-        "site_id": "",
+        "id": "",
         "title": "",
         "link": "",
         "owner": {
-            "user_id": "",
-            "display_name": ""
+            "userId": "",
+            "displayName": ""
         }
     },
     "visits": 0
@@ -167,12 +166,12 @@ Besuchsstatistiken einer Seite nach Länder.
 {
     "country": "",
     "site": {
-        "site_id": "",
+        "id": "",
         "title": "",
         "link": "",
         "owner": {
-            "user_id": "",
-            "display_name": ""
+            "userId": "",
+            "displayName": ""
         }
     },
     "visits": 0
@@ -183,14 +182,14 @@ Besuchsstatistiken einer Seite nach Länder.
 Statistiken von welcher Seite die Besucher auf diese kamen.
 ```json
 {
-    "site_id": "",
-    "referring_site": {
-        "site_id": "",
+    "siteId": "",
+    "referringSite": {
+        "id": "",
         "title": "",
         "link": "",
         "owner": {
-            "user_id": "",
-            "display_name": ""
+            "userId": "",
+            "displayName": ""
         }
     },
     "visits": 0
